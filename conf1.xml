@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration cost-classifier-used="1" base-classifier-used="1"
+    beta="1.0" num-folds="3" use-reweight="false" fitness-metric-used="5">
+    <dataset-path>in/01_glass_BWNFP_binary.arff</dataset-path>
+    <cost-classifiers-names>weka.classifiers.meta.CostSensitiveClassifier</cost-classifiers-names>
+    <cost-classifiers-names>weka.classifiers.meta.MetaCost</cost-classifiers-names>
+    <base-classifiers-names>weka.classifiers.lazy.IBk</base-classifiers-names>
+    <base-classifiers-names>weka.classifiers.trees.J48</base-classifiers-names>
+    <base-classifiers-names>weka.classifiers.bayes.NaiveBayes</base-classifiers-names>
+    <base-classifiers-names>weka.classifiers.meta.AdaBoostM1</base-classifiers-names>
+    <base-classifiers-names>weka.classifiers.functions.SMO</base-classifiers-names>
+    <base-classifiers-names>weka.classifiers.functions.MultilayerPerceptron</base-classifiers-names>
+    <fitness-metrics-names>utcluj.ecsb.metrics.BaccMetric</fitness-metrics-names>
+    <fitness-metrics-names>utcluj.ecsb.metrics.FMeasureMetric</fitness-metrics-names>
+    <fitness-metrics-names>utcluj.ecsb.metrics.GMMetric</fitness-metrics-names>
+    <fitness-metrics-names>utcluj.ecsb.metrics.LinTPFNMetric</fitness-metrics-names>
+    <fitness-metrics-names>utcluj.ecsb.metrics.LinTPPrecisionMetric</fitness-metrics-names>
+    <fitness-metrics-names>utcluj.ecsb.metrics.LinTPTNMetric</fitness-metrics-names>
+</configuration>
