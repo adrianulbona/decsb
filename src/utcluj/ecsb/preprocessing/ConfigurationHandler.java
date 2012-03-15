@@ -1,7 +1,6 @@
 package utcluj.ecsb.preprocessing;
 
-import org.exolab.castor.xml.Marshaller;
-import org.exolab.castor.xml.Unmarshaller;
+import org.apache.log4j.Logger;
 import utcluj.ecsb.watchmaker.metrics.FitnessMetric;
 import utcluj.ecsb.watchmaker.metrics.FitnessMetricWithBeta;
 import weka.classifiers.Classifier;
@@ -10,141 +9,114 @@ import weka.core.AttributeStats;
 import weka.core.Instances;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.Random;
 
 /**
- * Created by IntelliJ IDEA.
  * User: adibo
  * Date: 12.12.2011
  * Time: 16:29
- * To change this template use File | Settings | File Templates.
  */
 public class ConfigurationHandler {
 
-    private Configuration configuration;
+    public static final String PROPERTIES_FILE = "decsb.properties";
+
     private Instances instances;
     private int minorityClassIndex;
     private Classifier costClassifier;
     private String baseClassifierName;
     private FitnessMetric fitnessMetric;
+    private int numFolds;
 
-    public ConfigurationHandler(String configurationFile) {
-        configuration = loadConfiguration(configurationFile);
-        instances = loadInstances();
+    public ConfigurationHandler() {
+        Properties properties = loadConfiguration(PROPERTIES_FILE);
+        Logger.getLogger("ECSBLog").error(properties);
+        initHandler(properties);
+    }
+
+    // TODO : commentaries
+    private void initHandler(Properties props){
+
+        instances = loadInstances(props.getProperty("dataset_path"));
+
+        numFolds = Integer.valueOf(props.getProperty("num_folds"));
 
         int classIndex = instances.numAttributes() - 1;
         instances.setClassIndex(classIndex);
         instances.randomize(new Random(1));
-        instances.stratify(configuration.getNumFolds());
+        instances.stratify(numFolds);
         AttributeStats classStats = instances.attributeStats(classIndex);
         if (classStats.nominalCounts[0] > classStats.nominalCounts[1]) {
             minorityClassIndex = 1;
         } else {
             minorityClassIndex = 0;
         }
-        baseClassifierName = configuration.getBaseClassifiersNames()[configuration.getBaseClassifierUsed()];
+        baseClassifierName = props.getProperty("base_classifier");
 
         try {
-            Class<?> costClassfifierClass = Class.forName(configuration.getCostClassifiersNames()[configuration.getCostClassifierUsed()]);
-            costClassifier = (Classifier) costClassfifierClass.newInstance();
+            Class<?> costClassifierClass = Class.forName(props.getProperty("cost_classifier"));
+            costClassifier = (Classifier) costClassifierClass.newInstance();
             if (costClassifier instanceof CostSensitiveClassifier) {
-                ((CostSensitiveClassifier) costClassifier).setMinimizeExpectedCost(configuration.isUseReweight());
+                ((CostSensitiveClassifier) costClassifier).setMinimizeExpectedCost(Boolean.parseBoolean(props.getProperty("use_reweight")));
             }
-        } catch (Exception e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+            Logger.getLogger("DECSBLog").error("Unable to create the cost classifier.");
         }
-
         try {
-            Class<?> fitnessMetricClass = Class.forName(configuration.getFitnessMetricsNames()[configuration.getFitnessMetricUsed()]);
+            Class<?> fitnessMetricClass = Class.forName(props.getProperty("fitness_metric"));
             fitnessMetric = (FitnessMetric) fitnessMetricClass.newInstance();
             if (fitnessMetric instanceof FitnessMetricWithBeta) {
-                ((FitnessMetricWithBeta) fitnessMetric).setBeta(configuration.getBeta());
+                ((FitnessMetricWithBeta) fitnessMetric).setBeta(Double.parseDouble(props.getProperty("beta")));
             }
-        } catch (Exception e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+
+        }catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+            Logger.getLogger("DECSBLog").error("Unable to create the fitness metric.");
         }
     }
 
-    public static Configuration loadConfiguration(String string) {
-        FileReader fileReader;
-        try {
-            fileReader = new FileReader(string);
-            return (Configuration) Unmarshaller.unmarshal(Configuration.class, fileReader);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Problems with loading the configuration file.");
-            return null;
+    private Properties loadConfiguration(String propertiesFile) {
+        Properties props = new Properties();
+        try(FileInputStream in = new FileInputStream(propertiesFile)){
+            props.load(in);
+        } catch (IOException e ) {
+            Logger.getLogger("DECSBLog").error("Unable to load props file.");
         }
+        return props;
     }
 
-    public static void saveConfiguration(Configuration conf, String fichier_xml) {
-        try {
-            FileWriter file = new FileWriter(fichier_xml);
-            Marshaller.marshal(conf, file);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Problems with saving the configuration file.");
+    private Instances loadInstances(String datasetPath) {
+        Instances instances = null;
+        try(BufferedReader instancesReader = new BufferedReader(new FileReader(datasetPath))) {
+            instances = new Instances(instancesReader);
+        } catch (IOException e) {
+            Logger.getLogger("DECSBLog").error("Unable to load dataset.");
         }
-    }
-
-    private Instances loadInstances() {
-        try {
-            BufferedReader instances = new BufferedReader(new FileReader(configuration.getDatasetPath()));
-            return new Instances(instances);
-
-        } catch (Exception e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-        return null;
-    }
-
-    public Configuration getConfiguration() {
-        return configuration;
-    }
-
-    public void setConfiguration(Configuration configuration) {
-        this.configuration = configuration;
+        return instances;
     }
 
     public Instances getInstances() {
         return instances;
     }
 
-    public void setInstances(Instances instances) {
-        this.instances = instances;
-    }
-
     public int getMinorityClassIndex() {
         return minorityClassIndex;
-    }
-
-    public void setMinorityClassIndex(int minorityClassIndex) {
-        this.minorityClassIndex = minorityClassIndex;
     }
 
     public Classifier getCostClassifier() {
         return costClassifier;
     }
 
-    public void setCostClassifier(Classifier costClassifier) {
-        this.costClassifier = costClassifier;
-    }
-
     public String getBaseClassifierName() {
         return baseClassifierName;
-    }
-
-    public void setBaseClassifierName(String baseClassifierName) {
-        this.baseClassifierName = baseClassifierName;
     }
 
     public FitnessMetric getFitnessMetric() {
         return fitnessMetric;
     }
-
-    public void setFitnessMetric(FitnessMetric fitnessMetric) {
-        this.fitnessMetric = fitnessMetric;
+    public int getNumFolds(){
+        return numFolds;
     }
 }

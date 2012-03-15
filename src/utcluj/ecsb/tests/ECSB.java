@@ -1,6 +1,5 @@
 package utcluj.ecsb.tests;
 
-import org.junit.Test;
 import org.uncommons.maths.random.MersenneTwisterRNG;
 import org.uncommons.maths.random.Probability;
 import org.uncommons.watchmaker.framework.*;
@@ -14,33 +13,30 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
- * Created by IntelliJ IDEA.
  * User: adibo
  * Date: 11.12.2011
  * Time: 20:07
- * To change this template use File | Settings | File Templates.
  */
-public class ECSBTest {
+public class ECSB {
 
-    @Test
-    public void test() throws Exception {
+    public static void main(String[] args) {
 
-        ConfigurationHandler configurationHandler = new ConfigurationHandler("conf.xml");
+        ConfigurationHandler configurationHandler = new ConfigurationHandler();
 
         CandidateFactoryECSB candidateFactoryECSB = new CandidateFactoryECSB((float)127.0);
 
 
         CrossoverECSB crossoverECSB = new CrossoverECSB(5);
         MutationECSB mutationECSB = new MutationECSB(Probability.ONE);
-        EvolutionPipeline<Individual> evolutionPipeline = new EvolutionPipeline<Individual>(
-                Arrays.asList(crossoverECSB,mutationECSB));
-
+        EvolutionPipeline<Individual> evolutionPipeline;
+        evolutionPipeline = new EvolutionPipeline<>(
+                Arrays.asList(crossoverECSB, mutationECSB));
 
 
         FitnessEvaluatorECSB fitnessEvaluator = new FitnessEvaluatorECSB(
                     configurationHandler.getInstances(),
                     configurationHandler.getCostClassifier(),
-                    configurationHandler.getConfiguration().getNumFolds(),
+                    configurationHandler.getNumFolds(),
                     configurationHandler.getBaseClassifierName(),
                     configurationHandler.getFitnessMetric(),
                     configurationHandler.getMinorityClassIndex());
@@ -49,15 +45,12 @@ public class ECSBTest {
         Random rng = new MersenneTwisterRNG();
 
 
-        EvolutionEngine<Individual> engine
-                    = new GenerationalEvolutionEngine<Individual>(candidateFactoryECSB,
-                                              evolutionPipeline,
-                                              fitnessEvaluator,
-                                              selection,
-                                              rng);
-
-
-
+        EvolutionEngine<Individual> engine;
+        engine = new GenerationalEvolutionEngine<>(candidateFactoryECSB,
+                                  evolutionPipeline,
+                                  fitnessEvaluator,
+                                  selection,
+                                  rng);
 
 
         engine.addEvolutionObserver(new EvolutionObserver<Individual>() {

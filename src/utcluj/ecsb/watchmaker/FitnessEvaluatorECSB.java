@@ -15,12 +15,11 @@ import java.util.Random;
 
 
 /**
- * Created by IntelliJ IDEA.
  * User: adibo
  * Date: 11.12.2011
  * Time: 19:06
- * To change this template use File | Settings | File Templates.
  */
+
 public class FitnessEvaluatorECSB implements FitnessEvaluator<Individual>{
     private Instances dataset;
     private Classifier costClassifier;
