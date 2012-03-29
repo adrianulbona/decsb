@@ -11,13 +11,12 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Created by IntelliJ IDEA.
  * User: adibo
- * Date: 18.12.2011
- * Time: 20:14
- * To change this template use File | Settings | File Templates.
+ * Date: 11.12.2011
+ * Time: 19:06
  */
-public class MutationECSB implements EvolutionaryOperator<Individual>{
+
+public class MutationECSB implements EvolutionaryOperator<Individual> {
     private BitStringMutation bitStringMutation;
 
     public MutationECSB(Probability mutationProbability) {
@@ -27,15 +26,15 @@ public class MutationECSB implements EvolutionaryOperator<Individual>{
 
     public List<Individual> apply(List<Individual> individuals, Random random) {
 
-        List<Individual> individualsAfterMutation = new ArrayList<Individual>();
-        for(Individual individual : individuals){
-            individualsAfterMutation.add(mutate(individual,random));
+        List<Individual> individualsAfterMutation = new ArrayList<>();
+        for (Individual individual : individuals) {
+            individualsAfterMutation.add(mutate(individual, random));
         }
         return individualsAfterMutation;
     }
 
-    public Individual mutate(Individual individual,Random random){
-        float[] individualAsFloatArray = individualAsFloatArray = individual.asFloatArray();;
+    public Individual mutate(Individual individual, Random random) {
+        float[] individualAsFloatArray = individual.asFloatArray();
         int floatArrayLength = individualAsFloatArray.length;
 
         float[] individualAfterMutationAsFloatArray = new float[floatArrayLength];
@@ -48,17 +47,17 @@ public class MutationECSB implements EvolutionaryOperator<Individual>{
 
         List<BitString> bitStringsAfterMutation;
 
-        for (int k = 0; k < floatArrayLength;k++){
+        for (int k = 0; k < floatArrayLength; k++) {
             individualAsInt = Float.floatToIntBits(individualAsFloatArray[k]);
-            sign     = individualAsInt & 0x80000000;
+            sign = individualAsInt & 0x80000000;
             exponent = individualAsInt & 0x7f800000;
 
             chromosome = individualAsInt & 0x007fffff;   //mantissa
             bs = new BitString(Long.toBinaryString(0x00800000 | chromosome).substring(1));
 
-            bitStringsAfterMutation = bitStringMutation.apply(Arrays.asList(bs),random);
+            bitStringsAfterMutation = bitStringMutation.apply(Arrays.asList(bs), random);
 
-            individualAfterMutationAsFloatArray[k] = Float.intBitsToFloat(sign | exponent | (int)Integer.parseInt(bitStringsAfterMutation.get(0).toString(),2));
+            individualAfterMutationAsFloatArray[k] = Float.intBitsToFloat(sign | exponent | Integer.parseInt(bitStringsAfterMutation.get(0).toString(), 2));
         }
 
         return Individual.fromFloatArray(individualAfterMutationAsFloatArray);

@@ -1,5 +1,6 @@
 package utcluj.ecsb.watchmaker;
 
+import org.apache.log4j.Logger;
 import org.uncommons.watchmaker.framework.FitnessEvaluator;
 import utcluj.ecsb.watchmaker.metrics.FitnessMetric;
 import weka.classifiers.Classifier;
@@ -13,14 +14,13 @@ import java.util.List;
 import java.util.Random;
 
 
-
 /**
  * User: adibo
  * Date: 11.12.2011
  * Time: 19:06
  */
 
-public class FitnessEvaluatorECSB implements FitnessEvaluator<Individual>{
+public class FitnessEvaluatorECSB implements FitnessEvaluator<Individual> {
     private Instances dataset;
     private Classifier costClassifier;
     private int numFolds;
@@ -38,84 +38,82 @@ public class FitnessEvaluatorECSB implements FitnessEvaluator<Individual>{
         this.minorityClassIndex = minorityClassIndex;
     }
 
-    public Instances getDataset() {
-        return dataset;
-    }
-    public void setDataset(Instances dataset) {
-        this.dataset = dataset;
-    }
-
-    public Classifier getCostClassifier() {
-        return costClassifier;
-    }
-
-    public void setCostClassifier(Classifier costClassifier) {
-        this.costClassifier = costClassifier;
-    }
-
     public double getFitness(Individual individual, List<? extends Individual> individuals) {
+        Evaluation individualEvaluation = evaluateIndividual(individual);
+        return fitnessMetric.computeFitness(individualEvaluation, minorityClassIndex);
+    }
 
-        Evaluation eval = null;
+    public Evaluation evaluateIndividual(Individual individual) {
+
+        Evaluation evaluation;
 
         CostMatrix costMatrix = new CostMatrix(dataset.numClasses());
 
-	    costMatrix.setElement(0, 0, 0.0);
+        costMatrix.setElement(0, 0, 0.0);
         costMatrix.setElement(1, 1, 0.0);
         costMatrix.setElement(0, 1, individual.getC1());
         costMatrix.setElement(1, 0, individual.getC2());
 
         Classifier baseClassifier = getBaseClassifier(baseClassifierName, individual.getParams()[0], individual.getParams()[1]);
         try {
-            eval = new Evaluation(dataset, costMatrix);
-            if (costClassifier instanceof CostSensitiveClassifier){
-                ((CostSensitiveClassifier)costClassifier).setCostMatrix(costMatrix);
-                ((CostSensitiveClassifier)costClassifier).setClassifier(baseClassifier);
+            evaluation = new Evaluation(dataset, costMatrix);
+            if (costClassifier instanceof CostSensitiveClassifier) {
+                ((CostSensitiveClassifier) costClassifier).setCostMatrix(costMatrix);
+                ((CostSensitiveClassifier) costClassifier).setClassifier(baseClassifier);
 
-                eval.crossValidateModel(costClassifier, dataset, numFolds, new Random(1));
+                evaluation.crossValidateModel(costClassifier, dataset, numFolds, new Random(1));
+            } else if (costClassifier instanceof MetaCost) {
+                ((MetaCost) costClassifier).setCostMatrix(costMatrix);
+                ((MetaCost) costClassifier).setClassifier(baseClassifier);
+                evaluation.crossValidateModel(costClassifier, dataset, numFolds, new Random(1));
+            } else {
+                evaluation.crossValidateModel(baseClassifier, dataset, numFolds, new Random(1));
             }
-            else if (costClassifier instanceof MetaCost){
-                ((MetaCost)costClassifier).setCostMatrix(costMatrix);
-                ((MetaCost)costClassifier).setClassifier(baseClassifier);
-                eval.crossValidateModel(costClassifier, dataset, numFolds, new Random(1));
-            }
-            else{
-                eval.crossValidateModel(baseClassifier, dataset, numFolds , new Random(1));
-            }
+            return evaluation;
         } catch (Exception e) {
-		    System.out.println(eval.toSummaryString());
-	    }
-        return fitnessMetric.computeFitness(eval,minorityClassIndex);
+            Logger.getLogger("DECSBLog").error("Unable to compute fitness.");
+            return null;
+        }
     }
 
     public boolean isNatural() {
         return true;
     }
-    private Classifier getBaseClassifier(String baseClassifierName, double c, double e){
+
+    private Classifier getBaseClassifier(String baseClassifierName, double c, double e) {
         Classifier baseClassifier = null;
         try {
 
             Class<?> cls = Class.forName(baseClassifierName);
-            baseClassifier = (Classifier)cls.newInstance();
+            baseClassifier = (Classifier) cls.newInstance();
 
-            if(baseClassifier.getClass().toString().contains("IBk")){
-                baseClassifier.setOptions(weka.core.Utils.splitOptions("-K "+(int)(c/12.8 + 1)));
+            if (baseClassifier.getClass().toString().contains("IBk")) {
+                baseClassifier.setOptions(weka.core.Utils.splitOptions("-K " + (int) (c / 12.8 + 1)));
+            } else if (baseClassifier.getClass().toString().contains("J48")) {
+                baseClassifier.setOptions(weka.core.Utils.splitOptions("-C " + (c / 320) + " -M " + (int) (e / 30 + 1))); //M sa fie sub 5, ca de nu da erori, ci C sub 0.4
+            } else if (baseClassifier.getClass().toString().contains("SMO")) {
+                baseClassifier.setOptions(weka.core.Utils.splitOptions("-C " + c / 12.8 + 1 + " -K"));
+            } else if (baseClassifier.getClass().toString().contains("PolyKernel")) {
+                baseClassifier.setOptions(weka.core.Utils.splitOptions("-C 250007 -E " + (int) (e / 12.8 + 1)));
+            } else if (baseClassifier.getClass().toString().contains("Multilayer")) {
+                baseClassifier.setOptions(weka.core.Utils.splitOptions("-L " + c / 128 + " -M " + e / 128));
+            } else if (baseClassifier.getClass().toString().contains("Ada")) {
+                baseClassifier.setOptions(weka.core.Utils.splitOptions("-P " + (int) c + " -I " + (int) (e / 4 + 1)));
             }
-            else if(baseClassifier.getClass().toString().contains("J48")){
-                baseClassifier.setOptions(weka.core.Utils.splitOptions("-C "+(double)((c/320))+" -M "+(int)(e/30 + 1))); //M sa fie sub 5, ca de nu da erori, ci C sub 0.4
-            }
-            else if(baseClassifier.getClass().toString().contains("SMO")){
-                baseClassifier.setOptions(weka.core.Utils.splitOptions("-C "+(double)(c/12.8 + 1) +" -K \"weka.classifiers.functions.supportVector.PolyKernel -C 250007 -E "+(int)(e/12.8 + 1)+"\""));
-            }
-            else if(baseClassifier.getClass().toString().contains("Multilayer")){
-                baseClassifier.setOptions(weka.core.Utils.splitOptions("-L "+(double)(c/128) +" -M "+(double)(e/128)));
-            }
-            else if(baseClassifier.getClass().toString().contains("Ada")){
-                baseClassifier.setOptions(weka.core.Utils.splitOptions("-P "+ (int)c +" -I "+(int)(e/4 + 1)));
-            }
-        } catch (Exception e1) {
-            e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (Exception ex) {
+            Logger.getLogger("DECSBLog").error("Unable to to create base classifier.");
         }
         return baseClassifier;
+    }
+
+    public void logIndividualEvaluation(Individual individual) {
+        Evaluation individualEvaluation = evaluateIndividual(individual);
+        try {
+            Logger.getLogger("ECSBLog").info("evaluation: " + individualEvaluation.toSummaryString()
+                    + "\n" + individualEvaluation.toClassDetailsString());
+        } catch (Exception e) {
+            Logger.getLogger("ECSBLog").warn("Exception when trying to print evaluation details per class.");
+        }
     }
 
 }

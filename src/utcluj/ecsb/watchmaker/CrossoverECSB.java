@@ -8,12 +8,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+
 /**
- * Created by IntelliJ IDEA.
  * User: adibo
- * Date: 16.12.2011
- * Time: 00:49
- * To change this template use File | Settings | File Templates.
+ * Date: 11.12.2011
  */
 public class CrossoverECSB extends AbstractCrossover<Individual> {
     private BitStringCrossover bitStringCrossover;
@@ -51,15 +49,15 @@ public class CrossoverECSB extends AbstractCrossover<Individual> {
 
         List<BitString> bitStringsAfterCrossover;
 
-        for (int k = 0; k < floatArrayLength;k++){
+        for (int k = 0; k < floatArrayLength; k++) {
             individual1AsInt = Float.floatToIntBits(individual1AsFloatArray[k]);
 
-            sign1     = individual1AsInt & 0x80000000;
+            sign1 = individual1AsInt & 0x80000000;
             exponent1 = individual1AsInt & 0x7f800000;
             chromosome1 = individual1AsInt & 0x007fffff;   //mantissa
 
             individual2AsInt = Float.floatToIntBits(individual2AsFloatArray[k]);
-            sign2     = individual2AsInt & 0x80000000;
+            sign2 = individual2AsInt & 0x80000000;
             exponent2 = individual2AsInt & 0x7f800000;
             chromosome2 = individual2AsInt & 0x007fffff;   //mantissa
 
@@ -67,13 +65,13 @@ public class CrossoverECSB extends AbstractCrossover<Individual> {
             bs2 = new BitString(Long.toBinaryString(0x00800000 | chromosome2).substring(1));
 
 
-            bitStringsAfterCrossover = bitStringCrossover.apply(Arrays.asList(bs1,bs2),random);
+            bitStringsAfterCrossover = bitStringCrossover.apply(Arrays.asList(bs1, bs2), random);
 
-            son1AsFloatArray[k] = Float.intBitsToFloat(sign1 | exponent1 | (int)Integer.parseInt(bitStringsAfterCrossover.get(0).toString(),2));
-            son2AsFloatArray[k] = Float.intBitsToFloat(sign2 | exponent2 | (int)Integer.parseInt(bitStringsAfterCrossover.get(1).toString(),2));
+            son1AsFloatArray[k] = Float.intBitsToFloat(sign1 | exponent1 | Integer.parseInt(bitStringsAfterCrossover.get(0).toString(), 2));
+            son2AsFloatArray[k] = Float.intBitsToFloat(sign2 | exponent2 | Integer.parseInt(bitStringsAfterCrossover.get(1).toString(), 2));
         }
 
-        return Arrays.asList(Individual.fromFloatArray(son1AsFloatArray),Individual.fromFloatArray(son2AsFloatArray));
+        return Arrays.asList(Individual.fromFloatArray(son1AsFloatArray), Individual.fromFloatArray(son2AsFloatArray));
     }
 
 }

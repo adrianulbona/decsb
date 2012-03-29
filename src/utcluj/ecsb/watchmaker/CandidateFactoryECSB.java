@@ -7,14 +7,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
+
 /**
- * Created by IntelliJ IDEA.
  * User: adibo
- * Date: 14.12.2011
- * Time: 19:04
- * To change this template use File | Settings | File Templates.
+ * Date: 11.12.2011
  */
-public class CandidateFactoryECSB implements CandidateFactory<Individual>{
+public class CandidateFactoryECSB implements CandidateFactory<Individual> {
     private float chromosomeMaxValue;
 
     public CandidateFactoryECSB(float chromosomeMaxValue) {
@@ -23,24 +21,28 @@ public class CandidateFactoryECSB implements CandidateFactory<Individual>{
 
     public List<Individual> generateInitialPopulation(int n, Random random) {
 
-        List<Individual> population = new ArrayList<Individual>();
+        List<Individual> population = new ArrayList<>();
 
-        for(int i=0; i<n; i++){
+        for (int i = 0; i < n; i++) {
+            Individual candidate;
+            do {
+                candidate = generateRandomCandidate(random);
+            } while (!candidate.isValid());
             population.add(generateRandomCandidate(random));
+
         }
         return population;
     }
 
     public List<Individual> generateInitialPopulation(int i, Collection<Individual> individuals, Random random) {
-        return generateInitialPopulation(i,random);
+        return generateInitialPopulation(i, random);
     }
 
     public Individual generateRandomCandidate(Random random) {
-        Individual individual = new Individual(
-                random.nextFloat()*chromosomeMaxValue,
-                random.nextFloat()*chromosomeMaxValue,
-                new float[]{random.nextFloat()*chromosomeMaxValue,random.nextFloat()*chromosomeMaxValue});
         //System.out.println(individual);
-        return individual;
+        return new Individual(
+                random.nextFloat() * chromosomeMaxValue,
+                random.nextFloat() * chromosomeMaxValue,
+                new float[]{random.nextFloat() * chromosomeMaxValue, random.nextFloat() * chromosomeMaxValue});
     }
 }
