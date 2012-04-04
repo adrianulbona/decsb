@@ -21,6 +21,7 @@ import java.util.Random;
  */
 
 public class FitnessEvaluatorECSB implements FitnessEvaluator<Individual> {
+
     private Instances dataset;
     private Classifier costClassifier;
     private int numFolds;
@@ -71,7 +72,7 @@ public class FitnessEvaluatorECSB implements FitnessEvaluator<Individual> {
             }
             return evaluation;
         } catch (Exception e) {
-            Logger.getLogger("DECSBLog").error("Unable to compute fitness.");
+            Logger.getLogger("ECSBLog").error("Unable to compute fitness.");
             return null;
         }
     }

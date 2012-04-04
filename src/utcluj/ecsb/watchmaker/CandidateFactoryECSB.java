@@ -21,7 +21,7 @@ public class CandidateFactoryECSB implements CandidateFactory<Individual> {
 
     public List<Individual> generateInitialPopulation(int n, Random random) {
 
-        List<Individual> population = new ArrayList<>();
+        List<Individual> population = new ArrayList<Individual>();
 
         for (int i = 0; i < n; i++) {
             Individual candidate;

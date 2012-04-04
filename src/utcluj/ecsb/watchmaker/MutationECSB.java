@@ -26,7 +26,7 @@ public class MutationECSB implements EvolutionaryOperator<Individual> {
 
     public List<Individual> apply(List<Individual> individuals, Random random) {
 
-        List<Individual> individualsAfterMutation = new ArrayList<>();
+        List<Individual> individualsAfterMutation = new ArrayList<Individual>();
         for (Individual individual : individuals) {
             individualsAfterMutation.add(mutate(individual, random));
         }
