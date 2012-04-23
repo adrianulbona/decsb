@@ -10,7 +10,7 @@ import org.uncommons.watchmaker.framework.operators.EvolutionPipeline;
 import org.uncommons.watchmaker.framework.selection.*;
 import utcluj.ecsb.watchmaker.*;
 import utcluj.ecsb.watchmaker.metrics.FitnessMetric;
-import utcluj.ecsb.watchmaker.metrics.Metrics;
+import utcluj.ecsb.watchmaker.metrics.MetricFactory;
 import weka.classifiers.Classifier;
 import weka.classifiers.meta.CostSensitiveClassifier;
 import weka.core.AttributeStats;
@@ -108,17 +108,15 @@ public class EvolutionaryFactory {
 
     private FitnessMetric buildFitnessMetric(String fitnessMetricName, String beta) {
         if ("GMMetric".equals(fitnessMetricName)) {
-            return Metrics.getAGMMetric();
-        } else if ("BaccMetric".equals(fitnessMetricName)) {
-            return Metrics.getAGBaccMetric();
+            return MetricFactory.getAGMMetric();
+        } else if ("BAccMetric".equals(fitnessMetricName)) {
+            return MetricFactory.getAGBAccMetric();
         } else if ("FMeasureMetric".equals(fitnessMetricName)) {
-            return Metrics.getAFMeasureMetric(Double.valueOf(beta));
-        } else if ("LinTPFNMetric".equals(fitnessMetricName)) {
-            return Metrics.getALinTPFNMetric(Double.valueOf(beta));
+            return MetricFactory.getAFMeasureMetric(Double.valueOf(beta));
         } else if ("LinTPPrecisionMetric".equals(fitnessMetricName)) {
-            return Metrics.getALinTPPrecisionMetric(Double.valueOf(beta));
+            return MetricFactory.getALinTPPrecisionMetric(Double.valueOf(beta));
         } else if ("LinTPTNMetric".equals(fitnessMetricName)) {
-            return Metrics.getALinTPTNMetric(Double.valueOf(beta));
+            return MetricFactory.getALinTPTNMetric(Double.valueOf(beta));
         } else {
             Logger.getLogger("ECSBLog").error("Unable to create the fitness metric.");
             return null;

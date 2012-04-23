@@ -93,9 +93,7 @@ public class FitnessEvaluatorECSB implements FitnessEvaluator<Individual> {
             } else if (baseClassifier.getClass().toString().contains("J48")) {
                 baseClassifier.setOptions(weka.core.Utils.splitOptions("-C " + (c / 320) + " -M " + (int) (e / 30 + 1))); //M sa fie sub 5, ca de nu da erori, ci C sub 0.4
             } else if (baseClassifier.getClass().toString().contains("SMO")) {
-                baseClassifier.setOptions(weka.core.Utils.splitOptions("-C " + c / 12.8 + 1 + " -K"));
-            } else if (baseClassifier.getClass().toString().contains("PolyKernel")) {
-                baseClassifier.setOptions(weka.core.Utils.splitOptions("-C 250007 -E " + (int) (e / 12.8 + 1)));
+                baseClassifier.setOptions(weka.core.Utils.splitOptions("-C "+(c/12.8 + 1) +" -K \"weka.classifiers.functions.supportVector.PolyKernel -C 250007 -E "+(int)(e/12.8 + 1)+"\""));
             } else if (baseClassifier.getClass().toString().contains("Multilayer")) {
                 baseClassifier.setOptions(weka.core.Utils.splitOptions("-L " + c / 128 + " -M " + e / 128));
             } else if (baseClassifier.getClass().toString().contains("Ada")) {
@@ -115,6 +113,9 @@ public class FitnessEvaluatorECSB implements FitnessEvaluator<Individual> {
         } catch (Exception e) {
             Logger.getLogger("ECSBLog").warn("Exception when trying to print evaluation details per class.");
         }
+    }
+    public int getMinorityClassIndex() {
+        return minorityClassIndex;
     }
 
 }

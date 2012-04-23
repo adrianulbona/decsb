@@ -1,0 +1,26 @@
+
+elite_count=1
+mutation_rate=0.5
+selection_strategy=RouletteWheelSelection
+dataset_path=/home/cloudera/decsb/in/08_vehicle_van_remainder_binary.arff
+fitness_metric=BAccMetric
+crossover_points=4
+selection_param=0.2
+num_folds=4
+population_count=10
+number_of_generations=50
+beta=0.5
+cost_classifier=weka.classifiers.meta.CostSensitiveClassifier
+use_reweight=false
+base_classifier=weka.classifiers.meta.AdaBoostM1
+
+	Fitness	SDev	Mean	TrueP	FalseP	TrueN	FMeas	Precision
+0	0.931	0.185	0.706	0.945	0.082	0.918	0.855	0.78
+1	0.931	0.148	0.573	0.945	0.082	0.918	0.855	0.78
+2	0.931	0.152	0.587	0.945	0.082	0.918	0.855	0.78
+3	0.94	0.191	0.63	0.96	0.079	0.921	0.866	0.789
+4	0.94	0.197	0.657	0.96	0.079	0.921	0.866	0.789
+5	0.947	0.172	0.816	0.985	0.091	0.909	0.863	0.769
+6	0.947	0.196	0.776	0.985	0.091	0.909	0.863	0.769
+7	0.947	0.167	0.819	0.985	0.091	0.909	0.863	0.769
+8	0.948	0.174	0.847	0.985	0.088	0.912	0.867	0.775
