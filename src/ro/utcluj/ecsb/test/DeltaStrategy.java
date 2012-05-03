@@ -33,7 +33,7 @@ public class DeltaStrategy {
 
             String filename = tempConfiguration.getProperty("dataset_path");
 
-            Utils.initLogger("delta_strategy_" + filename.substring(filename.lastIndexOf("/"),filename.length()-5)+".txt");
+            Utils.initLogger("delta_strategy_" + filename.substring(filename.lastIndexOf("/") + 1, filename.length() - 5) + ".txt");
 
             for (EcsbSelectionStrategy selectionStrategy : EcsbSelectionStrategy.values()) {
                 for (EcsbClassifiers classifier : EcsbClassifiers.values()) {

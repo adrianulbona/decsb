@@ -36,7 +36,7 @@ public class DeltaPopulation {
 
             String filename = tempConfiguration.getProperty("dataset_path");
 
-            Utils.initLogger("delta_pop_" + filename.substring(filename.lastIndexOf("/"),filename.length()-5)+".txt");
+            Utils.initLogger("delta_pop_" + filename.substring(filename.lastIndexOf("/") + 1, filename.length() - 5) + ".txt");
 
             for (int populationSize = 10; populationSize <= 50; populationSize += 10) {
                 for (EcsbClassifiers classifier : EcsbClassifiers.values()) {

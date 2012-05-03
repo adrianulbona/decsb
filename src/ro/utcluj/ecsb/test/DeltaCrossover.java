@@ -36,7 +36,7 @@ public class DeltaCrossover {
 
             String filename = tempConfiguration.getProperty("dataset_path");
 
-            Utils.initLogger("delta_crossover_" + filename.substring(filename.lastIndexOf("/")+1,filename.length()-5)+".txt");
+            Utils.initLogger("delta_crossover_" + filename.substring(filename.lastIndexOf("/") + 1, filename.length() - 5) + ".txt");
 
             for (int crossoverPoints = 1; crossoverPoints < 23; crossoverPoints += 4) {
                 for (EcsbClassifiers classifier : EcsbClassifiers.values()) {

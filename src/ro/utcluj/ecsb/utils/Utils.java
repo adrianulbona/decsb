@@ -26,7 +26,7 @@ public class Utils {
     }
 
     public static void initLogger(String resultsFileName) {
-        System.setProperty("logfile.name", System.getProperty("user.dir") + "\\results\\" + resultsFileName);
+        System.setProperty("logfile.name", System.getProperty("user.dir") + "/results/" + resultsFileName);
         PropertyConfigurator.configure("log4j.properties");
     }
 

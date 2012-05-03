@@ -36,7 +36,7 @@ public class DeltaMutation {
 
             String filename = tempConfiguration.getProperty("dataset_path");
 
-            Utils.initLogger("delta_mutation_" + filename.substring(filename.lastIndexOf("/"),filename.length()-5)+".txt");
+            Utils.initLogger("delta_mutation_" + filename.substring(filename.lastIndexOf("/") + 1, filename.length() - 5) + ".txt");
 
             for (double populationSize = 0.0; populationSize <= 1.0; populationSize += 0.1) {
                 for (EcsbClassifiers classifier : EcsbClassifiers.values()) {
