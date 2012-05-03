@@ -1,4 +1,4 @@
-package utcluj.ecsb.watchmaker;
+package ro.utcluj.ecsb.population;
 
 import java.text.DecimalFormat;
 
@@ -8,18 +8,18 @@ import java.text.DecimalFormat;
  * Time: 19:06
  */
 
-public class Individual {
+public class EcsbIndividual {
     private float c1;
     private float c2;
     private float[] params;
 
-    public Individual(float c1, float c2, float[] params) {
+    public EcsbIndividual(float c1, float c2, float[] params) {
         this.c1 = c1;
         this.c2 = c2;
         this.params = params;
     }
 
-    public Individual() {
+    public EcsbIndividual() {
     }
 
     public float getC1() {
@@ -58,12 +58,12 @@ public class Individual {
         return floatArray;
     }
 
-    public static Individual fromFloatArray(float[] individualAsFloatArray) {
-        Individual individual;
+    public static EcsbIndividual fromFloatArray(float[] individualAsFloatArray) {
+        EcsbIndividual individual;
         if (individualAsFloatArray.length < 2) {
             individual = null;
         } else {
-            individual = new Individual();
+            individual = new EcsbIndividual();
 
             individual.setC1(individualAsFloatArray[0]);
             individual.setC2(individualAsFloatArray[1]);

@@ -1,4 +1,4 @@
-package utcluj.ecsb.watchmaker;
+package ro.utcluj.ecsb.utils;
 
 import org.apache.log4j.PropertyConfigurator;
 
@@ -10,30 +10,31 @@ import java.util.Date;
 import java.util.Properties;
 
 public class Utils {
-    private Utils(){
+    private Utils() {
     }
 
     public static Properties loadConfiguration(String propertiesFile) throws IOException {
         Properties props = new Properties();
         BufferedReader in = null;
-        try{
+        try {
             in = new BufferedReader(new FileReader(propertiesFile));
             props.load(in);
-        }
-        finally {
+        } finally {
             if (in != null) {
                 in.close();
             }
         }
         return props;
     }
-    public static void initLogger(){
+
+    public static void initLogger() {
         System.setProperty("logfile.name", "results_" + new Timestamp(new Date().getTime()));
         PropertyConfigurator.configure("log4j.properties");
     }
-    public static String propertiesToString(Properties properties){
+
+    public static String propertiesToString(Properties properties) {
         StringBuilder propertiesStringBuilder = new StringBuilder("\n");
-        for (String property : properties.stringPropertyNames()){
+        for (String property : properties.stringPropertyNames()) {
             propertiesStringBuilder.append(property).append('=').append(properties.getProperty(property)).append('\n');
         }
         return propertiesStringBuilder.toString();

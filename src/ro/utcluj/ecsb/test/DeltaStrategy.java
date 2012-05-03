@@ -1,14 +1,12 @@
-package utcluj.ecsb.watchmaker.test;
+package ro.utcluj.ecsb.test;
 
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import utcluj.ecsb.ECSB;
-import utcluj.ecsb.watchmaker.EvolutionObserverECSB;
-import utcluj.ecsb.watchmaker.Utils;
-import utcluj.ecsb.watchmaker.metrics.Metric;
-import utcluj.ecsb.watchmaker.preprocessing.Classifier;
+import ro.utcluj.ecsb.ECSB;
+import ro.utcluj.ecsb.metrics.Metric;
+import ro.utcluj.ecsb.utils.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,13 +14,13 @@ import java.util.Collection;
 import java.util.Properties;
 
 @RunWith(value = Parameterized.class)
-public class VariationTest {
+public class DeltaStrategy {
 
     final private static String CONFIGURATION_FILE = "decsb.properties";
 
     private Properties configuration;
 
-    public VariationTest(Properties configuration) {
+    public DeltaStrategy(Properties configuration) {
         this.configuration = configuration;
     }
 
@@ -30,13 +28,13 @@ public class VariationTest {
     public static Collection<Object[]> data() {
         Utils.initLogger();
 
-        Collection<Object[]> data = new ArrayList<Object[]> ();
+        Collection<Object[]> data = new ArrayList<Object[]>();
         try {
             final Properties tempConfiguration = Utils.loadConfiguration(CONFIGURATION_FILE);
-            for (int populationSize = 10; populationSize <= 50; populationSize+=10){
-                for (Classifier classifier : Classifier.values()){
-                    for (Metric metric : Metric.values()){
-                        tempConfiguration.setProperty("population_count", String.valueOf(populationSize));
+            for (EcsbSelectionStrategy selectionStrategy : EcsbSelectionStrategy.values()) {
+                for (EcsbClassifiers classifier : EcsbClassifiers.values()) {
+                    for (Metric metric : Metric.values()) {
+                        tempConfiguration.setProperty("selection_strategy", String.valueOf(selectionStrategy));
                         tempConfiguration.setProperty("base_classifier", classifier.getClassName());
                         tempConfiguration.setProperty("fitness_metric", metric.getMetricName());
                         data.add(new Object[]{tempConfiguration.clone()});
@@ -52,11 +50,11 @@ public class VariationTest {
 
     @Test
     public void classifierVariationTest() {
-        ECSB engine = new ECSB();
+        ECSB engine = new EcsbFactory(configuration).setUpECSB();
 
         Logger.getLogger("ECSBLog").info(Utils.propertiesToString(configuration));
-        Logger.getLogger("ECSBLog").info(EvolutionObserverECSB.getHeader());
+        Logger.getLogger("ECSBLog").info(EcsbEvolutionObserver.getHeader());
 
-        engine.runEvolutionaryCostSensitiveBalancing(configuration);
+        engine.runEvolutionaryCostSensitiveBalancing();
     }
 }

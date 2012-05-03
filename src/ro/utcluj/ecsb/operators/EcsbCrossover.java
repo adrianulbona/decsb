@@ -1,8 +1,9 @@
-package utcluj.ecsb.watchmaker;
+package ro.utcluj.ecsb.operators;
 
 import org.uncommons.maths.binary.BitString;
 import org.uncommons.watchmaker.framework.operators.AbstractCrossover;
 import org.uncommons.watchmaker.framework.operators.BitStringCrossover;
+import ro.utcluj.ecsb.population.EcsbIndividual;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,16 +14,16 @@ import java.util.Random;
  * User: adibo
  * Date: 11.12.2011
  */
-public class CrossoverECSB extends AbstractCrossover<Individual> {
+public class EcsbCrossover extends AbstractCrossover<EcsbIndividual> {
     private BitStringCrossover bitStringCrossover;
 
-    public CrossoverECSB(int crossoverPoints) {
+    public EcsbCrossover(int crossoverPoints) {
         super(crossoverPoints);
         bitStringCrossover = new BitStringCrossover(crossoverPoints);
     }
 
     @Override
-    protected List<Individual> mate(Individual individual1, Individual individual2, int i, Random random) {
+    protected List<EcsbIndividual> mate(EcsbIndividual individual1, EcsbIndividual individual2, int i, Random random) {
 
         float[] individual1AsFloatArray = individual1.asFloatArray();
         float[] individual2AsFloatArray = individual2.asFloatArray();
@@ -71,7 +72,7 @@ public class CrossoverECSB extends AbstractCrossover<Individual> {
             son2AsFloatArray[k] = Float.intBitsToFloat(sign2 | exponent2 | Integer.parseInt(bitStringsAfterCrossover.get(1).toString(), 2));
         }
 
-        return Arrays.asList(Individual.fromFloatArray(son1AsFloatArray), Individual.fromFloatArray(son2AsFloatArray));
+        return Arrays.asList(EcsbIndividual.fromFloatArray(son1AsFloatArray), EcsbIndividual.fromFloatArray(son2AsFloatArray));
     }
 
 }

@@ -1,4 +1,4 @@
-package utcluj.ecsb.watchmaker;
+package ro.utcluj.ecsb.population;
 
 import org.uncommons.watchmaker.framework.CandidateFactory;
 
@@ -12,19 +12,19 @@ import java.util.Random;
  * User: adibo
  * Date: 11.12.2011
  */
-public class CandidateFactoryECSB implements CandidateFactory<Individual> {
+public class EcsbCandidateFactory implements CandidateFactory<EcsbIndividual> {
     private float chromosomeMaxValue;
 
-    public CandidateFactoryECSB(float chromosomeMaxValue) {
+    public EcsbCandidateFactory(float chromosomeMaxValue) {
         this.chromosomeMaxValue = chromosomeMaxValue;
     }
 
-    public List<Individual> generateInitialPopulation(int n, Random random) {
+    public List<EcsbIndividual> generateInitialPopulation(int n, Random random) {
 
-        List<Individual> population = new ArrayList<Individual>();
+        List<EcsbIndividual> population = new ArrayList<EcsbIndividual>();
 
         for (int i = 0; i < n; i++) {
-            Individual candidate;
+            EcsbIndividual candidate;
             do {
                 candidate = generateRandomCandidate(random);
             } while (!candidate.isValid());
@@ -34,13 +34,13 @@ public class CandidateFactoryECSB implements CandidateFactory<Individual> {
         return population;
     }
 
-    public List<Individual> generateInitialPopulation(int i, Collection<Individual> individuals, Random random) {
+    public List<EcsbIndividual> generateInitialPopulation(int i, Collection<EcsbIndividual> individuals, Random random) {
         return generateInitialPopulation(i, random);
     }
 
-    public Individual generateRandomCandidate(Random random) {
+    public EcsbIndividual generateRandomCandidate(Random random) {
         //System.out.println(individual);
-        return new Individual(
+        return new EcsbIndividual(
                 random.nextFloat() * chromosomeMaxValue,
                 random.nextFloat() * chromosomeMaxValue,
                 new float[]{random.nextFloat() * chromosomeMaxValue, random.nextFloat() * chromosomeMaxValue});

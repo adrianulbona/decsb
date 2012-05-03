@@ -1,4 +1,4 @@
-package utcluj.ecsb.watchmaker.preprocessing;
+package ro.utcluj.ecsb.utils;
 
 import org.apache.log4j.Logger;
 import org.uncommons.maths.random.MersenneTwisterRNG;
@@ -8,9 +8,15 @@ import org.uncommons.watchmaker.framework.SelectionStrategy;
 import org.uncommons.watchmaker.framework.SequentialEvolutionEngine;
 import org.uncommons.watchmaker.framework.operators.EvolutionPipeline;
 import org.uncommons.watchmaker.framework.selection.*;
-import utcluj.ecsb.watchmaker.*;
-import utcluj.ecsb.watchmaker.metrics.FitnessMetric;
-import utcluj.ecsb.watchmaker.metrics.MetricFactory;
+import ro.utcluj.ecsb.ECSB;
+import ro.utcluj.ecsb.evaluation.EcsbFitnessEvaluator;
+import ro.utcluj.ecsb.evaluation.EcsbModelEvaluator;
+import ro.utcluj.ecsb.metrics.FitnessMetric;
+import ro.utcluj.ecsb.metrics.MetricFactory;
+import ro.utcluj.ecsb.operators.EcsbCrossover;
+import ro.utcluj.ecsb.operators.EcsbMutation;
+import ro.utcluj.ecsb.population.EcsbCandidateFactory;
+import ro.utcluj.ecsb.population.EcsbIndividual;
 import weka.classifiers.Classifier;
 import weka.classifiers.meta.CostSensitiveClassifier;
 import weka.core.AttributeStats;
@@ -27,54 +33,86 @@ import java.util.Random;
  * Date: 12.12.2011
  * Time: 16:29
  */
-public class EvolutionaryFactory {
+public class EcsbFactory {
 
     private Properties configuration;
 
-    public EvolutionaryFactory(Properties configuration) {
+    public EcsbFactory(Properties configuration) {
         this.configuration = configuration;
     }
 
-    public EvolutionEngine<Individual> buildEvolutionEngine() {
+    public ECSB setUpECSB() {
 
-        final CandidateFactoryECSB candidateFactoryECSB = new CandidateFactoryECSB((float) 127.0);
+        Instances[] splitDataset = splitDataset();
 
+        EvolutionEngine<EcsbIndividual> engine = buildEvolutionEngine(splitDataset[0]);
+
+        EcsbModelEvaluator modelEvaluator = buildValidator(splitDataset[0], splitDataset[1]);
+
+        final int populationCount = Integer.parseInt(configuration.getProperty("population_count"));
+        final int eliteCount = Integer.parseInt(configuration.getProperty("elite_count"));
+        final int numberOfGenerations = Integer.parseInt(configuration.getProperty("number_of_generations"));
+
+        return new ECSB(engine, numberOfGenerations, eliteCount, populationCount, modelEvaluator);
+    }
+
+    public EvolutionEngine<EcsbIndividual> buildEvolutionEngine(Instances trainSet) {
+
+        final EcsbCandidateFactory candidateFactoryECSB = new EcsbCandidateFactory((float) 127.0);
 
         final Random rng = new MersenneTwisterRNG();
 
-        return new SequentialEvolutionEngine<Individual>(candidateFactoryECSB,
+        EcsbFitnessEvaluator fitnessEvaluator = buildEvaluator(trainSet);
+
+        EvolutionEngine<EcsbIndividual> engine = new SequentialEvolutionEngine<EcsbIndividual>(candidateFactoryECSB,
                 buildEvolutionPipeline(),
-                buildEvaluator(),
+                fitnessEvaluator,
                 buildStrategy(),
                 rng);
 
+        engine.addEvolutionObserver(new EcsbEvolutionObserver(fitnessEvaluator));
+
+        return engine;
+
     }
 
-    private EvolutionPipeline<Individual> buildEvolutionPipeline() {
+    private EvolutionPipeline<EcsbIndividual> buildEvolutionPipeline() {
 
         final int crossoverPoints = Integer.parseInt(configuration.getProperty("crossover_points"));
-        final CrossoverECSB crossoverECSB = new CrossoverECSB(crossoverPoints);
+        final EcsbCrossover crossoverECSB = new EcsbCrossover(crossoverPoints);
 
         final Probability mutationProbability = new Probability(Double.parseDouble(configuration.getProperty("mutation_rate")));
-        final MutationECSB mutationECSB = new MutationECSB(mutationProbability);
+        final EcsbMutation mutationECSB = new EcsbMutation(mutationProbability);
 
-        return new EvolutionPipeline<Individual>(Arrays.asList(crossoverECSB, mutationECSB));
+        return new EvolutionPipeline<EcsbIndividual>(Arrays.asList(crossoverECSB, mutationECSB));
     }
 
-    public FitnessEvaluatorECSB buildEvaluator() {
-
+    private Instances[] splitDataset() {
         final Instances instances = loadInstances(this.configuration.getProperty("dataset_path"));
+        final int numFolds = Integer.valueOf(this.configuration.getProperty("num_folds"));
 
-        final int classIndex = instances.numAttributes() - 1;
-        instances.setClassIndex(classIndex);
-        AttributeStats classStats = instances.attributeStats(classIndex);
+        instances.setClassIndex(getClassIndex(instances));
+
+        instances.randomize(new Random(1));
+        instances.stratify(numFolds);
+
+        return new Instances[]{instances.trainCV(numFolds, 1), instances.testCV(numFolds, 1)};
+    }
+
+    private int getClassIndex(Instances instances) {
+        return instances.numAttributes() - 1;
+    }
+
+    public EcsbFitnessEvaluator buildEvaluator(Instances trainSet) {
+
+        AttributeStats classStats = trainSet.attributeStats(getClassIndex(trainSet));
 
         final int minorityClassIndex = classStats.nominalCounts[0] > classStats.nominalCounts[1] ? 1 : 0;
 
-        instances.randomize(new Random(1));
-
         final int numFolds = Integer.valueOf(this.configuration.getProperty("num_folds"));
-        instances.stratify(numFolds);
+
+        trainSet.randomize(new Random(1));
+        trainSet.stratify(numFolds);
 
         final String baseClassifierName = this.configuration.getProperty("base_classifier");
 
@@ -87,9 +125,28 @@ public class EvolutionaryFactory {
             }
             final FitnessMetric fitnessMetric = buildFitnessMetric(this.configuration.getProperty("fitness_metric"), this.configuration.getProperty("beta"));
 
-            return new FitnessEvaluatorECSB(instances, costClassifier, numFolds, baseClassifierName, fitnessMetric, minorityClassIndex);
+            return new EcsbFitnessEvaluator(trainSet, costClassifier, numFolds, baseClassifierName, fitnessMetric, minorityClassIndex);
         } catch (Exception e) {
             Logger.getLogger("ECSBLog").error("Unable to create the cost classifier. Fitness evaluator creation aborted.");
+        }
+        return null;
+    }
+
+    public EcsbModelEvaluator buildValidator(Instances trainSet, Instances testSet) {
+
+        final String baseClassifierName = this.configuration.getProperty("base_classifier");
+
+        final Classifier costClassifier;
+
+        try {
+            Class<?> costClassifierClass = Class.forName(this.configuration.getProperty("cost_classifier"));
+            costClassifier = (Classifier) costClassifierClass.newInstance();
+            if (costClassifier instanceof CostSensitiveClassifier) {
+                ((CostSensitiveClassifier) costClassifier).setMinimizeExpectedCost(Boolean.parseBoolean(this.configuration.getProperty("use_reweight")));
+            }
+            return new EcsbModelEvaluator(trainSet, testSet, costClassifier, baseClassifierName);
+        } catch (Exception e) {
+            Logger.getLogger("ECSBLog").error("Unable to create validator.");
         }
         return null;
     }
@@ -123,7 +180,7 @@ public class EvolutionaryFactory {
         }
     }
 
-    private SelectionStrategy<? super Individual> buildStrategy() {
+    private SelectionStrategy<? super EcsbIndividual> buildStrategy() {
         final String strategyName = configuration.getProperty("selection_strategy");
         final double selectionParam = Double.parseDouble(configuration.getProperty("selection_param"));
 

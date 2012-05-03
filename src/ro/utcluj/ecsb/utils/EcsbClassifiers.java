@@ -1,6 +1,6 @@
-package utcluj.ecsb.watchmaker.preprocessing;
+package ro.utcluj.ecsb.utils;
 
-public enum Classifier {
+public enum EcsbClassifiers {
     IBk("weka.classifiers.lazy.IBk"),
     J48("weka.classifiers.trees.J48"),
     NaiveBayes("weka.classifiers.bayes.NaiveBayes"),
@@ -8,7 +8,8 @@ public enum Classifier {
     //SMO("weka.classifiers.functions.SMO");
 
     private final String className;
-    Classifier(String className) {
+
+    EcsbClassifiers(String className) {
         this.className = className;
     }
 

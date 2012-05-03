@@ -1,4 +1,4 @@
-package utcluj.ecsb.watchmaker.metrics;
+package ro.utcluj.ecsb.metrics;
 
 import weka.classifiers.Evaluation;
 

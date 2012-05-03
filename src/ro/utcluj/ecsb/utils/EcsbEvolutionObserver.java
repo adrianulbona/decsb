@@ -1,28 +1,30 @@
-package utcluj.ecsb.watchmaker;
+package ro.utcluj.ecsb.utils;
 
 import org.apache.log4j.Logger;
 import org.uncommons.watchmaker.framework.EvolutionObserver;
 import org.uncommons.watchmaker.framework.PopulationData;
+import ro.utcluj.ecsb.evaluation.EcsbFitnessEvaluator;
+import ro.utcluj.ecsb.population.EcsbIndividual;
 import weka.classifiers.Evaluation;
 
 import java.text.DecimalFormat;
 
-public class EvolutionObserverECSB implements EvolutionObserver<Individual> {
+public class EcsbEvolutionObserver implements EvolutionObserver<EcsbIndividual> {
 
     private final DecimalFormat decimalFormatter;
 
-    private final FitnessEvaluatorECSB fitnessEvaluator;
+    private final EcsbFitnessEvaluator fitnessEvaluator;
 
     private final int minorityClassIndex;
 
-    public EvolutionObserverECSB(FitnessEvaluatorECSB fitnessEvaluator) {
+    public EcsbEvolutionObserver(EcsbFitnessEvaluator fitnessEvaluator) {
         this.fitnessEvaluator = fitnessEvaluator;
         this.minorityClassIndex = fitnessEvaluator.getMinorityClassIndex();
         this.decimalFormatter = new DecimalFormat("#.###");
     }
 
     @Override
-    public void populationUpdate(PopulationData<? extends Individual> populationData) {
+    public void populationUpdate(PopulationData<? extends EcsbIndividual> populationData) {
         Evaluation evaluation = fitnessEvaluator.evaluateIndividual(populationData.getBestCandidate());
 
         final String message = String.format("%d\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s",
@@ -39,7 +41,8 @@ public class EvolutionObserverECSB implements EvolutionObserver<Individual> {
 
         Logger.getLogger("ECSBLog").info(message);
     }
-    public static String getHeader(){
+
+    public static String getHeader() {
         return "\tFitness\tSDev\tMean\tTrueP\tFalseP\tTrueN\tFMeas\tPrecision";
     }
 }

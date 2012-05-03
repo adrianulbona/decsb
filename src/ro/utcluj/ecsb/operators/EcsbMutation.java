@@ -1,9 +1,10 @@
-package utcluj.ecsb.watchmaker;
+package ro.utcluj.ecsb.operators;
 
 import org.uncommons.maths.binary.BitString;
 import org.uncommons.maths.random.Probability;
 import org.uncommons.watchmaker.framework.EvolutionaryOperator;
 import org.uncommons.watchmaker.framework.operators.BitStringMutation;
+import ro.utcluj.ecsb.population.EcsbIndividual;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,24 +17,24 @@ import java.util.Random;
  * Time: 19:06
  */
 
-public class MutationECSB implements EvolutionaryOperator<Individual> {
+public class EcsbMutation implements EvolutionaryOperator<EcsbIndividual> {
     private BitStringMutation bitStringMutation;
 
-    public MutationECSB(Probability mutationProbability) {
+    public EcsbMutation(Probability mutationProbability) {
         super();
         this.bitStringMutation = new BitStringMutation(mutationProbability);
     }
 
-    public List<Individual> apply(List<Individual> individuals, Random random) {
+    public List<EcsbIndividual> apply(List<EcsbIndividual> individuals, Random random) {
 
-        List<Individual> individualsAfterMutation = new ArrayList<Individual>();
-        for (Individual individual : individuals) {
+        List<EcsbIndividual> individualsAfterMutation = new ArrayList<EcsbIndividual>();
+        for (EcsbIndividual individual : individuals) {
             individualsAfterMutation.add(mutate(individual, random));
         }
         return individualsAfterMutation;
     }
 
-    public Individual mutate(Individual individual, Random random) {
+    public EcsbIndividual mutate(EcsbIndividual individual, Random random) {
         float[] individualAsFloatArray = individual.asFloatArray();
         int floatArrayLength = individualAsFloatArray.length;
 
@@ -60,6 +61,6 @@ public class MutationECSB implements EvolutionaryOperator<Individual> {
             individualAfterMutationAsFloatArray[k] = Float.intBitsToFloat(sign | exponent | Integer.parseInt(bitStringsAfterMutation.get(0).toString(), 2));
         }
 
-        return Individual.fromFloatArray(individualAfterMutationAsFloatArray);
+        return EcsbIndividual.fromFloatArray(individualAfterMutationAsFloatArray);
     }
 }

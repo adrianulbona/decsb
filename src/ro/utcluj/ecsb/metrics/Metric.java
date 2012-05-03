@@ -1,11 +1,11 @@
-package utcluj.ecsb.watchmaker.metrics;
+package ro.utcluj.ecsb.metrics;
 
 public enum Metric {
     BAcc("BAccMetric"),
     //FMeasure("FMeasureMetric"),
-    GM("GMMetric"),
+    GM("GMMetric");
     //LinTPPrecision("LinTPPrecisionMetric"),
-    LinTPTN("LinTPTNMetric");
+    //LinTPTN("LinTPTNMetric");
 
     private final String metricName;
 
