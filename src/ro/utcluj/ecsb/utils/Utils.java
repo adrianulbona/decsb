@@ -5,6 +5,7 @@ import org.apache.log4j.PropertyConfigurator;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Properties;
 
 public class Utils {
@@ -26,6 +27,9 @@ public class Utils {
     }
 
     public static void initLogger(String resultsFileName) {
+        Locale usLocale = new Locale("en","US");
+        Locale.setDefault(usLocale);
+
         System.setProperty("logfile.name", System.getProperty("user.dir") + "/results/" + resultsFileName);
         PropertyConfigurator.configure("log4j.properties");
     }
