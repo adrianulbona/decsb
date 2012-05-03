@@ -17,13 +17,13 @@ import java.util.Collection;
 import java.util.Properties;
 
 @RunWith(value = Parameterized.class)
-public class DeltaMutation {
+public class DeltaCrossover {
 
     final private static String CONFIGURATION_FILE = "decsb.properties";
 
     private Properties configuration;
 
-    public DeltaMutation(Properties configuration) {
+    public DeltaCrossover(Properties configuration) {
         this.configuration = configuration;
     }
 
@@ -36,12 +36,12 @@ public class DeltaMutation {
 
             String filename = tempConfiguration.getProperty("dataset_path");
 
-            Utils.initLogger("delta_mutation_" + filename.substring(filename.lastIndexOf("/"),filename.length()-5)+".txt");
+            Utils.initLogger("delta_crossover_" + filename.substring(filename.lastIndexOf("/")+1,filename.length()-5)+".txt");
 
-            for (double populationSize = 0.0; populationSize <= 1.0; populationSize += 0.1) {
+            for (int crossoverPoints = 1; crossoverPoints < 23; crossoverPoints += 4) {
                 for (EcsbClassifiers classifier : EcsbClassifiers.values()) {
                     for (Metric metric : Metric.values()) {
-                        tempConfiguration.setProperty("mutation_rate", String.valueOf(populationSize));
+                        tempConfiguration.setProperty("crossover_points", String.valueOf(crossoverPoints));
                         tempConfiguration.setProperty("base_classifier", classifier.getClassName());
                         tempConfiguration.setProperty("fitness_metric", metric.getMetricName());
                         data.add(new Object[]{tempConfiguration.clone()});
