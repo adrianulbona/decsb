@@ -28,6 +28,7 @@ public class ECSB {
 
 
     public static void main(String[] args) {
+        Utils.initLogger("test");
         try {
             if (args.length == 0) {
                 final ECSB ecsb = new EcsbFactory(Utils.loadConfiguration(System.getProperty("user.dir")
