@@ -32,7 +32,7 @@ public class DeltaPopulation {
 
         Collection<Object[]> data = new ArrayList<Object[]>();
         try {
-            final Properties tempConfiguration = EcsbUtils.loadConfiguration(CONFIGURATION_FILE);
+            final Properties tempConfiguration = EcsbUtils.loadConfiguration(DeltaPopulation.class.getResource(CONFIGURATION_FILE));
 
             String filename = tempConfiguration.getProperty("dataset_path");
 

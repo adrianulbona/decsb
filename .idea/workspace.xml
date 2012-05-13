@@ -7,10 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d554b97-fee7-43da-8b2f-8e671004fd4e" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/decsb.properties" afterPath="$PROJECT_DIR$/src/ro/utcluj/ecsb/decsb.properties" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/log4j.properties" afterPath="$PROJECT_DIR$/src/ro/utcluj/ecsb/log4j.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decsb.jar" afterPath="$PROJECT_DIR$/decsb.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/decsb_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/decsb_jar.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decsb.properties" afterPath="$PROJECT_DIR$/decsb.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/results/test" afterPath="$PROJECT_DIR$/results/test" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ro/utcluj/ecsb/ECSB.java" afterPath="$PROJECT_DIR$/src/ro/utcluj/ecsb/ECSB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaCrossover.java" afterPath="$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaCrossover.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaMutation.java" afterPath="$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaMutation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaPopulation.java" afterPath="$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaPopulation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaStrategy.java" afterPath="$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaStrategy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ro/utcluj/ecsb/test/TestDriver.java" afterPath="$PROJECT_DIR$/src/ro/utcluj/ecsb/test/TestDriver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/EcsbUtils.java" afterPath="$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/EcsbUtils.java" />
     </list>
     <ignored path="decsb.iws" />
@@ -74,25 +82,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DecsbFitnessEvaluator.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/evaluation/DecsbFitnessEvaluator.java">
+      <file leaf-file-name="ECSB.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/ECSB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="29" selection-start="588" selection-end="588" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EvaluationJobFactory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/hadoop/EvaluationJobFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="13" selection-start="562" selection-end="562" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1097#1122#0" expanded="true" />
-              </folding>
+            <state line="41" column="56" selection-start="1642" selection-end="1642" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -100,61 +94,25 @@
       <file leaf-file-name="EcsbFactory.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/EcsbFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="25" selection-start="2257" selection-end="2257" vertical-scroll-proportion="0.0">
+            <state line="110" column="24" selection-start="4442" selection-end="4442" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="log4j.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log4j.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="40" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="decsb.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/decsb.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="18" selection-start="1439" selection-end="1439" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EcsbEvolutionObserver.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/EcsbEvolutionObserver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="11" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ECSB.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/ECSB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="45" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeltaCrossover.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaCrossover.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="32" selection-start="1168" selection-end="1168" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EcsbUtils.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="EcsbUtils.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/EcsbUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="24" selection-start="1831" selection-end="1831" vertical-scroll-proportion="0.8630137">
+            <state line="40" column="2" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="decsb.properties" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/decsb.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="25" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.77922076">
               <folding />
             </state>
           </provider>
@@ -175,11 +133,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/StringUtils.java" />
-        <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/hadoop/TestDriver.java" />
-        <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/evaluation/STFitnessEvaluator.java" />
-        <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/test/TestDriver.java" />
-        <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/hadoop/SplitEvalMapper.java" />
         <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/hadoop/EvaluationJobFactory.java" />
         <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/hadoop/SplitEvalsReducer.java" />
         <option value="$PROJECT_DIR$/log4j.properties" />
@@ -188,16 +141,22 @@
         <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/preprocess/ArffSpliter.java" />
         <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/EcsbFactory.java" />
         <option value="$PROJECT_DIR$/decsb.properties" />
-        <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/ECSB.java" />
         <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaCrossover.java" />
+        <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaPopulation.java" />
+        <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaMutation.java" />
+        <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaStrategy.java" />
+        <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/test/TestDriver.java" />
+        <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/ECSB.java" />
         <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/EcsbUtils.java" />
+        <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/decsb.properties" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="-1" />
     <option name="y" value="24" />
-    <option name="width" value="1440" />
-    <option name="height" value="852" />
+    <option name="width" value="1442" />
+    <option name="height" value="853" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -404,6 +363,46 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecsb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decsb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decsb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecsb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decsb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decsb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -454,7 +453,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="decsb" />
       <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -612,12 +617,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1440" height="852" extended-state="0" />
+    <frame x="-1" y="24" width="1442" height="853" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39858156" sideWeight="0.998968" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.49784172" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -626,8 +631,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.67045456" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964029" sideWeight="0.67045456" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41761363" sideWeight="0.4971223" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24928162" sideWeight="0.5829787" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41702127" sideWeight="0.4971223" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -670,7 +675,7 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="init logger problem" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -683,46 +688,12 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="init logger problem" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/test/TestDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="17" selection-start="781" selection-end="781" vertical-scroll-proportion="0.3026906">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#818#826#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/hadoop/SplitEvalMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="155" selection-start="1950" selection-end="2105" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/hadoop/SplitEvalsReducer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="100" selection-start="843" selection-end="843" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-6-sun/jre/lib/rt.jar!/java/io/DataOutputStream.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="145" selection-end="145" vertical-scroll-proportion="0.14117648">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/hadoop-0.20/hadoop-0.20.2-cdh3u3-core.jar!/org/apache/hadoop/fs/FSDataOutputStream.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="55" selection-start="200" selection-end="200" vertical-scroll-proportion="0.15503876">
@@ -754,23 +725,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/EcsbFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="25" selection-start="2257" selection-end="2257" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log4j.properties">
+    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="40" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/decsb.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="18" selection-start="1439" selection-end="1439" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -784,32 +741,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/evaluation/DecsbFitnessEvaluator.java">
+    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaPopulation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="29" selection-start="588" selection-end="588" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="34" column="92" selection-start="1053" selection-end="1053" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/ECSB.java">
+    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaMutation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="45" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.0">
+        <state line="34" column="90" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="90" selection-start="902" selection-end="902" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/test/DeltaCrossover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="32" selection-start="1168" selection-end="1168" vertical-scroll-proportion="0.0">
+        <state line="32" column="81" selection-start="944" selection-end="944" vertical-scroll-proportion="0.74380165">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/evaluation/DecsbFitnessEvaluator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="29" selection-start="588" selection-end="588" vertical-scroll-proportion="0.6196474">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/test/TestDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="93" selection-start="1105" selection-end="1105" vertical-scroll-proportion="1.0957179">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#818#826#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/EcsbUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="24" selection-start="1831" selection-end="1831" vertical-scroll-proportion="0.8630137">
+        <state line="40" column="2" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/ECSB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="56" selection-start="1642" selection-end="1642" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/EcsbFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="24" selection-start="4442" selection-end="4442" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/decsb.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="25" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.77922076">
           <folding />
         </state>
       </provider>

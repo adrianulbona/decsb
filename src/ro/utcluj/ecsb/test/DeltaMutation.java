@@ -32,7 +32,7 @@ public class DeltaMutation {
 
         Collection<Object[]> data = new ArrayList<Object[]>();
         try {
-            final Properties tempConfiguration = EcsbUtils.loadConfiguration(CONFIGURATION_FILE);
+            final Properties tempConfiguration = EcsbUtils.loadConfiguration(DeltaMutation.class.getResource(CONFIGURATION_FILE));
 
             String filename = tempConfiguration.getProperty("dataset_path");
 

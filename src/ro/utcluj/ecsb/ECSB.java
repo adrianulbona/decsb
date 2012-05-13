@@ -30,12 +30,16 @@ public class ECSB {
     public static void main(String[] args) {
         try {
             if (args.length == 0) {
-                final ECSB ecsb = new EcsbFactory(EcsbUtils.loadConfiguration(System.getProperty("user.dir")
-                        + "/decsb.properties")).setUpECSB();
+                EcsbUtils.initLogger("test");
+                final ECSB ecsb = new EcsbFactory(
+                        EcsbUtils.loadConfiguration(
+                                ECSB.class.getResource("decsb.properties"))).setUpECSB();
                 ecsb.runEvolutionaryCostSensitiveBalancing();
             } else {
-                EcsbUtils.initLogger(args[0],"test");
-                final ECSB ecsb = new EcsbFactory(EcsbUtils.loadConfiguration(args[0] + "/decsb.properties")).setUpECSB();
+                EcsbUtils.initLogger(args[0], "test");
+                final ECSB ecsb = new EcsbFactory(
+                        EcsbUtils.loadConfiguration(
+                                ECSB.class.getResource("decsb.properties"))).setUpECSB();
                 ecsb.runEvolutionaryCostSensitiveBalancing();
             }
 

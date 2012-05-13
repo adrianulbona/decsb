@@ -1,10 +1,12 @@
 package ro.utcluj.ecsb.utils;
 
 import org.apache.log4j.PropertyConfigurator;
+import ro.utcluj.ecsb.ECSB;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Locale;
 import java.util.Properties;
 
@@ -12,11 +14,11 @@ public class EcsbUtils {
     private EcsbUtils() {
     }
 
-    public static Properties loadConfiguration(String propertiesFile) throws IOException {
+    public static Properties loadConfiguration(URL propertiesFile) throws IOException {
         Properties props = new Properties();
         BufferedReader in = null;
         try {
-            in = new BufferedReader(new FileReader(propertiesFile));
+            in = new BufferedReader(new FileReader(propertiesFile.getPath()));
             props.load(in);
         } finally {
             if (in != null) {
@@ -39,7 +41,7 @@ public class EcsbUtils {
         Locale.setDefault(usLocale);
 
         System.setProperty("logfile.name", System.getProperty("user.dir") + "/results/" + resultsFileName);
-        PropertyConfigurator.configure("log4j.properties");
+        PropertyConfigurator.configure(ECSB.class.getResource("log4j.properties"));
     }
 
     public static String propertiesToString(Properties properties) {

@@ -27,7 +27,7 @@ public class TestDriver extends Configured implements Tool {
         EvaluationJobFactory.buildJobAndEvaluate(
                 new EcsbCandidateFactory((float) 128.0).generateInitialPopulation(25, new Random(1)),
                 evaluations,
-                EcsbUtils.loadConfiguration("decsb.properties"));
+                EcsbUtils.loadConfiguration(TestDriver.class.getResource("decsb.properties")));
 
 
 

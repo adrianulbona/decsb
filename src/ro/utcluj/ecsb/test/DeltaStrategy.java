@@ -29,7 +29,7 @@ public class DeltaStrategy {
 
         Collection<Object[]> data = new ArrayList<Object[]>();
         try {
-            final Properties tempConfiguration = EcsbUtils.loadConfiguration(CONFIGURATION_FILE);
+            final Properties tempConfiguration = EcsbUtils.loadConfiguration(DeltaStrategy.class.getResource(CONFIGURATION_FILE));
 
             String filename = tempConfiguration.getProperty("dataset_path");
 
