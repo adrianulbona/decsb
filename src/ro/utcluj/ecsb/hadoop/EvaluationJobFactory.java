@@ -53,6 +53,8 @@ public class EvaluationJobFactory {
 
         job.getConfiguration().set("decsb.pop", StringUtils.toString(population));
 
+        job.getConfiguration().set("mapred.reduce.tasks", String.valueOf(1));
+        
         job.setInputFormatClass(WholeFileInputFormat.class);
 
         job.setOutputFormatClass(SequenceFileOutputFormat.class);

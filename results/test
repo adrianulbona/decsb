@@ -7717,3 +7717,875 @@ Total input paths to process : 3
 Running job: job_201205101415_0019
  map 0% reduce 0%
  map 66% reduce 0%
+JAAS Configuration already set up for Hadoop, not re-installing.
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0020
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0020
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=50158
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14257
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260818
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=22910
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=599064576
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1496981504
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0021
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0021
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=48937
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14594
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260854
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=21820
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=598327296
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1497989120
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0022
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0022
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=44144
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14800
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260826
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20160
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=597938176
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1496035328
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0023
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0023
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=42461
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14066
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260810
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20150
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=598564864
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1498357760
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0024
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0024
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=43574
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14155
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260826
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20700
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=598753280
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1498157056
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0025
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0025
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=43016
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14075
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260818
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20170
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=588115968
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1497436160
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0026
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0026
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=44174
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14407
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260818
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20680
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=598310912
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1498083328
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0027
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0027
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=42326
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14000
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260786
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20150
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=598323200
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1497022464
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0028
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0028
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=44502
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14180
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260826
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=21130
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=589406208
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1495654400
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0029
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0029
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=42573
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=13997
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260830
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20330
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=597340160
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1496109056
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0030
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0030
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=44266
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14057
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260826
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20940
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=598351872
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1498038272
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0031
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0031
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=42813
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14158
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260838
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20370
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=599326720
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1498107904
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0032
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0032
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=44828
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14013
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260830
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=21300
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=598306816
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1496612864
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0033
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0033
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=42401
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14104
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260842
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20200
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=598380544
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1498296320
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0034
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0034
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=42970
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14071
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260842
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20200
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=589746176
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1497239552
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0035
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0035
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=43952
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14223
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260806
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20310
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=598818816
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1496948736
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0036
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0036
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=42821
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=13954
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260842
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20380
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=598773760
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1498468352
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0037
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0037
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=45433
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14232
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260822
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20420
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=597811200
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1496039424
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0038
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0038
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=56764
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=19320
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260814
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20680
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=599597056
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1497739264
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0039
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0039
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=48588
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14237
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260826
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20990
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=597508096
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1496764416
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0040
+ map 0% reduce 0%
+ map 66% reduce 0%
+JAAS Configuration already set up for Hadoop, not re-installing.
+Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Initializing JVM Metrics with processName=JobTracker, sessionId=
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+Total input paths to process : 3
+Running job: job_local_0001
+setsid exited with exit code 0
+ Using ResourceCalculatorPlugin : org.apache.hadoop.util.LinuxResourceCalculatorPlugin@1eb2c1b
+io.sort.mb = 100
+ map 0% reduce 0%
+data buffer = 79691776/99614720
+record buffer = 262144/327680
+file:/home/cloudera/decsb/in/splits/train_split_0.arff : 1 --> 0.686968601459463
+file:/home/cloudera/decsb/in/splits/train_split_0.arff : 2 --> 0.606246234183571
+file:/home/cloudera/decsb/in/splits/train_split_0.arff : 3 --> 0.640255740777934
+file:/home/cloudera/decsb/in/splits/train_split_0.arff : 4 --> 0.7719756309834639
+file:/home/cloudera/decsb/in/splits/train_split_0.arff : 5 --> 0.7124924683671421
+
+ map 100% reduce 0%
+file:/home/cloudera/decsb/in/splits/train_split_0.arff : 6 --> 0.7921604070429136
+file:/home/cloudera/decsb/in/splits/train_split_0.arff : 7 --> 0.5621443395594832
+file:/home/cloudera/decsb/in/splits/train_split_0.arff : 8 --> 0.7719756309834639
+
+file:/home/cloudera/decsb/in/splits/train_split_0.arff : 9 --> 0.7085760192809801
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0040
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=65228
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=15243
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260834
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=21040
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=598839296
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1497370624
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0041
+ map 0% reduce 0%
+ map 66% reduce 0%
+JAAS Configuration already set up for Hadoop, not re-installing.
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0042
+ map 0% reduce 0%
+ map 66% reduce 0%
+ map 100% reduce 22%
+ map 100% reduce 100%
+Job complete: job_201205101415_0042
+Counters: 26
+  Job Counters 
+    Launched reduce tasks=1
+    SLOTS_MILLIS_MAPS=44482
+    Total time spent by all reduces waiting after reserving slots (ms)=0
+    Total time spent by all maps waiting after reserving slots (ms)=0
+    Launched map tasks=3
+    Data-local map tasks=3
+    SLOTS_MILLIS_REDUCES=14244
+  FileSystemCounters
+    FILE_BYTES_READ=846
+    HDFS_BYTES_READ=175763
+    FILE_BYTES_WRITTEN=260830
+    HDFS_BYTES_WRITTEN=495
+  Map-Reduce Framework
+    Map input records=3
+    Reduce shuffle bytes=858
+    Spilled Records=120
+    Map output bytes=720
+    CPU time spent (ms)=20260
+    Total committed heap usage (bytes)=498544640
+    Combine input records=0
+    SPLIT_RAW_BYTES=372
+    Reduce input records=60
+    Reduce input groups=20
+    Combine output records=0
+    Physical memory (bytes) snapshot=598241280
+    Reduce output records=20
+    Virtual memory (bytes) snapshot=1497796608
+    Map output records=60
+Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+Total input paths to process : 3
+Running job: job_201205101415_0043
+ map 0% reduce 0%
