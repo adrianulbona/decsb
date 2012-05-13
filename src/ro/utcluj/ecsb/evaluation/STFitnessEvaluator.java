@@ -16,17 +16,15 @@ package ro.utcluj.ecsb.evaluation; /**
  */
 
 
-import org.apache.hadoop.thirdparty.guava.common.base.Preconditions;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.Lists;
 import org.uncommons.watchmaker.framework.FitnessEvaluator;
 
 import java.util.List;
-
-import static org.apache.hadoop.thirdparty.guava.common.collect.Lists.*;
-
 /** Special Fitness Evaluator that evaluates all the population ones. */
 public abstract class STFitnessEvaluator<T> implements FitnessEvaluator<T> {
   
-  private final List<Double> evaluations = newArrayList();
+  private final List<Double> evaluations = Lists.newArrayList();
   
   private List<? extends T> population;
   
