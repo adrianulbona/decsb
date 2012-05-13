@@ -32,7 +32,7 @@ public class ECSB {
         try {
             EcsbUtils.initLogger("test");
             final Properties configuration = EcsbUtils.loadConfiguration(ECSB.class.getResource("decsb.properties"));
-            configuration.setProperty("dataset_path",args[0]);
+            //configuration.setProperty("dataset_path",args[0]);
             final ECSB ecsb = new EcsbFactory(configuration).setUpECSB();
             ecsb.runEvolutionaryCostSensitiveBalancing();
 

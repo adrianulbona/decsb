@@ -13,6 +13,9 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/xpp3_min-1.1.4c.jar" path-in-jar="/" />
       <element id="file-copy" path="$PROJECT_DIR$/src/ro/utcluj/ecsb/log4j.properties" />
       <element id="file-copy" path="$PROJECT_DIR$/src/ro/utcluj/ecsb/decsb.properties" />
+      <element id="directory" name="in">
+        <element id="dir-copy" path="$PROJECT_DIR$/in" />
+      </element>
     </root>
   </artifact>
 </component>

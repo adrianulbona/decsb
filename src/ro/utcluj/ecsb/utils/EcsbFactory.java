@@ -175,7 +175,11 @@ public class EcsbFactory {
     private Instances loadInstances(String datasetPath) {
         Instances instances = null;
         try {
-            BufferedReader instancesReader = new BufferedReader(new FileReader(datasetPath));
+            //BufferedReader instancesReader = new BufferedReader(new FileReader(datasetPath));
+            BufferedReader instancesReader =
+                    new BufferedReader(new FileReader(
+                            EcsbFactory.class.getClassLoader().getResource(configuration.getProperty("dataset_path")).getPath()));
+
             instances = new Instances(instancesReader);
             instancesReader.close(); // not safe
         } catch (Exception e) {
