@@ -26,6 +26,14 @@ public class EcsbUtils {
         return props;
     }
 
+    public static void initLogger(String configDir, String resultsFileName) {
+        Locale usLocale = new Locale("en","US");
+        Locale.setDefault(usLocale);
+
+        System.setProperty("logfile.name", System.getProperty("user.dir") + "/results/" + resultsFileName);
+        PropertyConfigurator.configure(configDir + "/log4j.properties");
+    }
+
     public static void initLogger(String resultsFileName) {
         Locale usLocale = new Locale("en","US");
         Locale.setDefault(usLocale);

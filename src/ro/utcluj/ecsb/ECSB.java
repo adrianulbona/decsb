@@ -28,14 +28,14 @@ public class ECSB {
 
 
     public static void main(String[] args) {
-        EcsbUtils.initLogger("test");
         try {
             if (args.length == 0) {
                 final ECSB ecsb = new EcsbFactory(EcsbUtils.loadConfiguration(System.getProperty("user.dir")
                         + "/decsb.properties")).setUpECSB();
                 ecsb.runEvolutionaryCostSensitiveBalancing();
             } else {
-                final ECSB ecsb = new EcsbFactory(EcsbUtils.loadConfiguration(args[0])).setUpECSB();
+                EcsbUtils.initLogger(args[0],"test");
+                final ECSB ecsb = new EcsbFactory(EcsbUtils.loadConfiguration(args[0] + "/decsb.properties")).setUpECSB();
                 ecsb.runEvolutionaryCostSensitiveBalancing();
             }
 
