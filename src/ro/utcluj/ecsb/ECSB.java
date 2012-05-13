@@ -9,6 +9,7 @@ import ro.utcluj.ecsb.utils.EcsbFactory;
 import ro.utcluj.ecsb.utils.EcsbUtils;
 
 import java.io.IOException;
+import java.util.Properties;
 
 public class ECSB {
 
@@ -29,19 +30,11 @@ public class ECSB {
 
     public static void main(String[] args) {
         try {
-            if (args.length == 0) {
-                EcsbUtils.initLogger("test");
-                final ECSB ecsb = new EcsbFactory(
-                        EcsbUtils.loadConfiguration(
-                                ECSB.class.getResource("decsb.properties"))).setUpECSB();
-                ecsb.runEvolutionaryCostSensitiveBalancing();
-            } else {
-                EcsbUtils.initLogger(args[0], "test");
-                final ECSB ecsb = new EcsbFactory(
-                        EcsbUtils.loadConfiguration(
-                                ECSB.class.getResource("decsb.properties"))).setUpECSB();
-                ecsb.runEvolutionaryCostSensitiveBalancing();
-            }
+            EcsbUtils.initLogger("test");
+            final Properties configuration = EcsbUtils.loadConfiguration(ECSB.class.getResource("decsb.properties"));
+            configuration.setProperty("dataset_path",args[0]);
+            final ECSB ecsb = new EcsbFactory(configuration).setUpECSB();
+            ecsb.runEvolutionaryCostSensitiveBalancing();
 
         } catch (IOException e) {
             Logger.getLogger("ECSBLog").error("Unable to load configuration file.");
