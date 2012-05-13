@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="hadoop-0.20.2">
+    <CLASSES>
+      <root url="jar:///usr/lib/hadoop-0.20/hadoop-0.20.2-cdh3u3-core.jar!/" />
+      <root url="jar:///usr/lib/hadoop-0.20/hadoop-0.20.2-cdh3u3-test.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

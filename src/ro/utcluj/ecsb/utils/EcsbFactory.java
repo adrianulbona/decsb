@@ -1,5 +1,6 @@
 package ro.utcluj.ecsb.utils;
 
+import org.apache.hadoop.fs.Path;
 import org.apache.log4j.Logger;
 import org.uncommons.maths.random.MersenneTwisterRNG;
 import org.uncommons.maths.random.Probability;
@@ -9,6 +10,7 @@ import org.uncommons.watchmaker.framework.SequentialEvolutionEngine;
 import org.uncommons.watchmaker.framework.operators.EvolutionPipeline;
 import org.uncommons.watchmaker.framework.selection.*;
 import ro.utcluj.ecsb.ECSB;
+import ro.utcluj.ecsb.evaluation.DecsbFitnessEvaluator;
 import ro.utcluj.ecsb.evaluation.EcsbFitnessEvaluator;
 import ro.utcluj.ecsb.evaluation.EcsbModelEvaluator;
 import ro.utcluj.ecsb.metrics.FitnessMetric;
@@ -17,6 +19,7 @@ import ro.utcluj.ecsb.operators.EcsbCrossover;
 import ro.utcluj.ecsb.operators.EcsbMutation;
 import ro.utcluj.ecsb.population.EcsbCandidateFactory;
 import ro.utcluj.ecsb.population.EcsbIndividual;
+import ro.utcluj.ecsb.preprocess.ArffSpliter;
 import weka.classifiers.Classifier;
 import weka.classifiers.meta.CostSensitiveClassifier;
 import weka.core.AttributeStats;
@@ -24,6 +27,7 @@ import weka.core.Instances;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Properties;
 import java.util.Random;
@@ -62,18 +66,35 @@ public class EcsbFactory {
 
         final Random rng = new MersenneTwisterRNG();
 
-        EcsbFitnessEvaluator fitnessEvaluator = buildEvaluator(trainSet);
+        EvolutionEngine<EcsbIndividual> engine = null;
+        if (Boolean.valueOf(configuration.getProperty("distributed"))){
+            ArffSpliter spliter = new ArffSpliter(trainSet,
+                    new Path(configuration.getProperty("train.splits.dir")),
+                    Integer.valueOf(configuration.getProperty("train.splits.number")));
+            try {
+                spliter.split();
+            } catch (IOException e) {
+                Logger.getLogger(EcsbFactory.class).error("Unable to split dataset.");
+            }
 
-        EvolutionEngine<EcsbIndividual> engine = new SequentialEvolutionEngine<EcsbIndividual>(candidateFactoryECSB,
+            engine = new SequentialEvolutionEngine<EcsbIndividual>(candidateFactoryECSB,
                 buildEvolutionPipeline(),
-                fitnessEvaluator,
+                new DecsbFitnessEvaluator(configuration),
                 buildStrategy(),
                 rng);
+            //engine.addEvolutionObserver(new EcsbEvolutionObserver(fitnessEvaluator));
+        }
+        else{
+            final EcsbFitnessEvaluator fitnessEvaluator = buildEvaluator(trainSet);
 
-        engine.addEvolutionObserver(new EcsbEvolutionObserver(fitnessEvaluator));
-
+            engine = new SequentialEvolutionEngine<EcsbIndividual>(candidateFactoryECSB,
+                    buildEvolutionPipeline(),
+                    fitnessEvaluator,
+                    buildStrategy(),
+                    rng);
+            engine.addEvolutionObserver(new EcsbEvolutionObserver(fitnessEvaluator));
+        }
         return engine;
-
     }
 
     private EvolutionPipeline<EcsbIndividual> buildEvolutionPipeline() {

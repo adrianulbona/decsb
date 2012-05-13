@@ -9,7 +9,7 @@ import ro.utcluj.ecsb.metrics.Metric;
 import ro.utcluj.ecsb.utils.EcsbClassifiers;
 import ro.utcluj.ecsb.utils.EcsbEvolutionObserver;
 import ro.utcluj.ecsb.utils.EcsbFactory;
-import ro.utcluj.ecsb.utils.Utils;
+import ro.utcluj.ecsb.utils.EcsbUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,11 +32,11 @@ public class DeltaPopulation {
 
         Collection<Object[]> data = new ArrayList<Object[]>();
         try {
-            final Properties tempConfiguration = Utils.loadConfiguration(CONFIGURATION_FILE);
+            final Properties tempConfiguration = EcsbUtils.loadConfiguration(CONFIGURATION_FILE);
 
             String filename = tempConfiguration.getProperty("dataset_path");
 
-            Utils.initLogger("delta_pop_" + filename.substring(filename.lastIndexOf("/") + 1, filename.length() - 5) + ".txt");
+            EcsbUtils.initLogger("delta_pop_" + filename.substring(filename.lastIndexOf("/") + 1, filename.length() - 5) + ".txt");
 
             for (int populationSize = 10; populationSize <= 50; populationSize += 10) {
                 for (EcsbClassifiers classifier : EcsbClassifiers.values()) {
@@ -59,7 +59,7 @@ public class DeltaPopulation {
     public void classifierVariationTest() {
         ECSB engine = new EcsbFactory(configuration).setUpECSB();
 
-        Logger.getLogger("ECSBLog").info(Utils.propertiesToString(configuration));
+        Logger.getLogger("ECSBLog").info(EcsbUtils.propertiesToString(configuration));
         Logger.getLogger("ECSBLog").info(EcsbEvolutionObserver.getHeader());
 
         engine.runEvolutionaryCostSensitiveBalancing();

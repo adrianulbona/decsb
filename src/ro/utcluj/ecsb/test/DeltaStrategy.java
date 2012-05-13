@@ -29,11 +29,11 @@ public class DeltaStrategy {
 
         Collection<Object[]> data = new ArrayList<Object[]>();
         try {
-            final Properties tempConfiguration = Utils.loadConfiguration(CONFIGURATION_FILE);
+            final Properties tempConfiguration = EcsbUtils.loadConfiguration(CONFIGURATION_FILE);
 
             String filename = tempConfiguration.getProperty("dataset_path");
 
-            Utils.initLogger("delta_strategy_" + filename.substring(filename.lastIndexOf("/") + 1, filename.length() - 5) + ".txt");
+            EcsbUtils.initLogger("delta_strategy_" + filename.substring(filename.lastIndexOf("/") + 1, filename.length() - 5) + ".txt");
 
             for (EcsbSelectionStrategy selectionStrategy : EcsbSelectionStrategy.values()) {
                 for (EcsbClassifiers classifier : EcsbClassifiers.values()) {
@@ -56,7 +56,7 @@ public class DeltaStrategy {
     public void classifierVariationTest() {
         ECSB engine = new EcsbFactory(configuration).setUpECSB();
 
-        Logger.getLogger("ECSBLog").info(Utils.propertiesToString(configuration));
+        Logger.getLogger("ECSBLog").info(EcsbUtils.propertiesToString(configuration));
         Logger.getLogger("ECSBLog").info(EcsbEvolutionObserver.getHeader());
 
         engine.runEvolutionaryCostSensitiveBalancing();

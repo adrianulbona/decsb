@@ -6,7 +6,7 @@ import org.uncommons.watchmaker.framework.termination.GenerationCount;
 import ro.utcluj.ecsb.evaluation.EcsbModelEvaluator;
 import ro.utcluj.ecsb.population.EcsbIndividual;
 import ro.utcluj.ecsb.utils.EcsbFactory;
-import ro.utcluj.ecsb.utils.Utils;
+import ro.utcluj.ecsb.utils.EcsbUtils;
 
 import java.io.IOException;
 
@@ -28,14 +28,14 @@ public class ECSB {
 
 
     public static void main(String[] args) {
-        Utils.initLogger("test");
+        EcsbUtils.initLogger("test");
         try {
             if (args.length == 0) {
-                final ECSB ecsb = new EcsbFactory(Utils.loadConfiguration(System.getProperty("user.dir")
+                final ECSB ecsb = new EcsbFactory(EcsbUtils.loadConfiguration(System.getProperty("user.dir")
                         + "/decsb.properties")).setUpECSB();
                 ecsb.runEvolutionaryCostSensitiveBalancing();
             } else {
-                final ECSB ecsb = new EcsbFactory(Utils.loadConfiguration(args[0])).setUpECSB();
+                final ECSB ecsb = new EcsbFactory(EcsbUtils.loadConfiguration(args[0])).setUpECSB();
                 ecsb.runEvolutionaryCostSensitiveBalancing();
             }
 
