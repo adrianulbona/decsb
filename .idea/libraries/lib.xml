@@ -5,7 +5,10 @@
       <root url="file://$PROJECT_DIR$/lib" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/src/weka-src.jar!/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/src/weka-src.jar!/src/main/java" />
+    </SOURCES>
     <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" />
   </library>
 </component>

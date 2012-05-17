@@ -1,5 +1,7 @@
 package ro.utcluj.ecsb.utils;
 
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.log4j.Logger;
 import org.uncommons.maths.random.MersenneTwisterRNG;
@@ -25,9 +27,7 @@ import weka.classifiers.meta.CostSensitiveClassifier;
 import weka.core.AttributeStats;
 import weka.core.Instances;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Arrays;
 import java.util.Properties;
 import java.util.Random;
@@ -45,11 +45,11 @@ public class EcsbFactory {
         this.configuration = configuration;
     }
 
-    public ECSB setUpECSB() {
+    public ECSB setUpECSB(boolean distributed) {
 
-        Instances[] splitDataset = splitDataset();
+        Instances[] splitDataset = splitDataset(distributed);
 
-        EvolutionEngine<EcsbIndividual> engine = buildEvolutionEngine(splitDataset[0]);
+        EvolutionEngine<EcsbIndividual> engine = buildEvolutionEngine(splitDataset[0], distributed);
 
         EcsbModelEvaluator modelEvaluator = buildValidator(splitDataset[0], splitDataset[1]);
 
@@ -60,14 +60,14 @@ public class EcsbFactory {
         return new ECSB(engine, numberOfGenerations, eliteCount, populationCount, modelEvaluator);
     }
 
-    public EvolutionEngine<EcsbIndividual> buildEvolutionEngine(Instances trainSet) {
+    public EvolutionEngine<EcsbIndividual> buildEvolutionEngine(Instances trainSet, boolean distributed) {
 
         final EcsbCandidateFactory candidateFactoryECSB = new EcsbCandidateFactory((float) 127.0);
 
         final Random rng = new MersenneTwisterRNG();
 
         EvolutionEngine<EcsbIndividual> engine = null;
-        if (Boolean.valueOf(configuration.getProperty("distributed"))){
+        if (distributed){
             ArffSpliter spliter = new ArffSpliter(trainSet,
                     new Path(configuration.getProperty("train.splits.dir")),
                     Integer.valueOf(configuration.getProperty("train.splits.number")));
@@ -108,8 +108,8 @@ public class EcsbFactory {
         return new EvolutionPipeline<EcsbIndividual>(Arrays.asList(crossoverECSB, mutationECSB));
     }
 
-    private Instances[] splitDataset() {
-        final Instances instances = loadInstances(this.configuration.getProperty("dataset_path"));
+    private Instances[] splitDataset(boolean distributed) {
+        final Instances instances = loadInstances(distributed);
         final int numFolds = Integer.valueOf(this.configuration.getProperty("num_folds"));
 
         instances.setClassIndex(getClassIndex(instances));
@@ -172,16 +172,25 @@ public class EcsbFactory {
         return null;
     }
 
-    private Instances loadInstances(String datasetPath) {
+    private Instances loadInstances(boolean distributed) {
         Instances instances = null;
         try {
-            //BufferedReader instancesReader = new BufferedReader(new FileReader(datasetPath));
+
+            if(distributed){
+                Path path = new Path(configuration.getProperty("dataset_path"));
+                FileSystem fs = FileSystem.get(path.toUri(), new Configuration());
+
+                InputStream instancesReader = fs.open(path);
+                instances = new Instances(new InputStreamReader(instancesReader));
+                instancesReader.close(); // not safe
+            }
+            else {
             BufferedReader instancesReader =
-                    new BufferedReader(new FileReader(
-                            EcsbFactory.class.getClassLoader().getResource(configuration.getProperty("dataset_path")).getPath()));
+                    new BufferedReader(new FileReader(configuration.getProperty("dataset_path")));
 
             instances = new Instances(instancesReader);
-            instancesReader.close(); // not safe
+                instancesReader.close(); // not safe
+            }
         } catch (Exception e) {
             Logger.getLogger("ECSBLog").error("Unable to load dataset.");
         }

@@ -32,11 +32,11 @@ public class DeltaCrossover {
 
         Collection<Object[]> data = new ArrayList<Object[]>();
         try {
-            final Properties tempConfiguration = EcsbUtils.loadConfiguration(DeltaCrossover.class.getResource(CONFIGURATION_FILE));
+            final Properties tempConfiguration = EcsbUtils.loadConfiguration(false, ECSB.CONF_PATH + "decsb.properties");
 
             String filename = tempConfiguration.getProperty("dataset_path");
 
-            EcsbUtils.initLogger("delta_crossover_" + filename.substring(filename.lastIndexOf("/") + 1, filename.length() - 5) + ".txt");
+            EcsbUtils.initLogger(false, "delta_crossover_" + filename.substring(filename.lastIndexOf("/") + 1, filename.length() - 5) + ".txt");
 
             for (int crossoverPoints = 1; crossoverPoints < 23; crossoverPoints += 4) {
                 for (EcsbClassifiers classifier : EcsbClassifiers.values()) {
@@ -57,7 +57,7 @@ public class DeltaCrossover {
 
     @Test
     public void classifierVariationTest() {
-        ECSB engine = new EcsbFactory(configuration).setUpECSB();
+        ECSB engine = new EcsbFactory(configuration).setUpECSB(false);
 
         Logger.getLogger("ECSBLog").info(EcsbUtils.propertiesToString(configuration));
         Logger.getLogger("ECSBLog").info(EcsbEvolutionObserver.getHeader());

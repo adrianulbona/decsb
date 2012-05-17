@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class ECSB {
-
+    public static String CONF_PATH = "./conf/";
     final private EvolutionEngine<EcsbIndividual> engine;
     final private int populationCount;
     final private int eliteCount;
@@ -30,12 +30,20 @@ public class ECSB {
 
     public static void main(String[] args) {
         try {
-            EcsbUtils.initLogger("test");
-            final Properties configuration = EcsbUtils.loadConfiguration(ECSB.class.getResource("decsb.properties"));
-            //configuration.setProperty("dataset_path",args[0]);
-            final ECSB ecsb = new EcsbFactory(configuration).setUpECSB();
-            ecsb.runEvolutionaryCostSensitiveBalancing();
+            final Properties configuration;
+            boolean distributed = false;
+            if (args.length>1 && args[0].equals("dist")){
+                distributed = true;
+                CONF_PATH = args[1];
+            }
+            configuration = EcsbUtils.loadConfiguration(distributed, CONF_PATH + "decsb.properties");
+            EcsbUtils.initLogger(distributed, configuration.get("result_file").toString());
+            /*if (distributed){
+                EvaluationJobFactory.initCache(configuration);
 
+            }*/
+     final ECSB ecsb = new EcsbFactory(configuration).setUpECSB(distributed);
+            ecsb.runEvolutionaryCostSensitiveBalancing();
         } catch (IOException e) {
             Logger.getLogger("ECSBLog").error("Unable to load configuration file.");
         }

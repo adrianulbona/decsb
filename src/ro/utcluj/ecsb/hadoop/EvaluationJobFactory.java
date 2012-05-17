@@ -1,5 +1,7 @@
 package ro.utcluj.ecsb.hadoop;
 
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.filecache.DistributedCache;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.DoubleWritable;
@@ -12,7 +14,10 @@ import ro.utcluj.ecsb.population.EcsbIndividual;
 import ro.utcluj.ecsb.utils.StringUtils;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Collection;
+import java.util.Properties;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class EvaluationJobFactory {
 
@@ -95,6 +100,14 @@ public class EvaluationJobFactory {
         while (reader.next(currentKey)){
             reader.getCurrentValue(currentValue);
             evaluations.add(currentValue.get());
+        }
+    }
+
+    public static void initCache(Properties props) throws IOException {
+        final String guava_path = "/user/cloudera/guava-r09.jar";//props.getProperty("guava_path");
+        final Configuration configuration = new Configuration();
+        if (guava_path != null){
+            DistributedCache.addArchiveToClassPath(new Path(guava_path), configuration);
         }
     }
 

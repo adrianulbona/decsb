@@ -11,11 +11,6 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/watchmaker-framework-0.6.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/uncommons-maths-1.2.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/xpp3_min-1.1.4c.jar" path-in-jar="/" />
-      <element id="file-copy" path="$PROJECT_DIR$/src/ro/utcluj/ecsb/log4j.properties" />
-      <element id="file-copy" path="$PROJECT_DIR$/src/ro/utcluj/ecsb/decsb.properties" />
-      <element id="directory" name="in">
-        <element id="dir-copy" path="$PROJECT_DIR$/in" />
-      </element>
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/guava-r09.jar" path-in-jar="/" />
     </root>
   </artifact>

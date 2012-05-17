@@ -32,11 +32,11 @@ public class DeltaPopulation {
 
         Collection<Object[]> data = new ArrayList<Object[]>();
         try {
-            final Properties tempConfiguration = EcsbUtils.loadConfiguration(DeltaPopulation.class.getResource(CONFIGURATION_FILE));
+            final Properties tempConfiguration = EcsbUtils.loadConfiguration(false, ECSB.CONF_PATH + "decsb.properties");
 
             String filename = tempConfiguration.getProperty("dataset_path");
 
-            EcsbUtils.initLogger("delta_pop_" + filename.substring(filename.lastIndexOf("/") + 1, filename.length() - 5) + ".txt");
+            EcsbUtils.initLogger(false, "delta_pop_" + filename.substring(filename.lastIndexOf("/") + 1, filename.length() - 5) + ".txt");
 
             for (int populationSize = 10; populationSize <= 50; populationSize += 10) {
                 for (EcsbClassifiers classifier : EcsbClassifiers.values()) {
@@ -57,7 +57,7 @@ public class DeltaPopulation {
 
     @Test
     public void classifierVariationTest() {
-        ECSB engine = new EcsbFactory(configuration).setUpECSB();
+        ECSB engine = new EcsbFactory(configuration).setUpECSB(false);
 
         Logger.getLogger("ECSBLog").info(EcsbUtils.propertiesToString(configuration));
         Logger.getLogger("ECSBLog").info(EcsbEvolutionObserver.getHeader());

@@ -32,11 +32,11 @@ public class DeltaMutation {
 
         Collection<Object[]> data = new ArrayList<Object[]>();
         try {
-            final Properties tempConfiguration = EcsbUtils.loadConfiguration(DeltaMutation.class.getResource(CONFIGURATION_FILE));
+            final Properties tempConfiguration = EcsbUtils.loadConfiguration(false, ECSB.CONF_PATH + "decsb.properties");
 
             String filename = tempConfiguration.getProperty("dataset_path");
 
-            EcsbUtils.initLogger("delta_mutation_" + filename.substring(filename.lastIndexOf("/") + 1, filename.length() - 5) + ".txt");
+            EcsbUtils.initLogger(false, "delta_mutation_" + filename.substring(filename.lastIndexOf("/") + 1, filename.length() - 5) + ".txt");
 
             for (double populationSize = 0.0; populationSize <= 1.0; populationSize += 0.1) {
                 for (EcsbClassifiers classifier : EcsbClassifiers.values()) {
@@ -57,7 +57,7 @@ public class DeltaMutation {
 
     @Test
     public void classifierVariationTest() {
-        ECSB engine = new EcsbFactory(configuration).setUpECSB();
+        ECSB engine = new EcsbFactory(configuration).setUpECSB(false);
 
         Logger.getLogger("ECSBLog").info(EcsbUtils.propertiesToString(configuration));
         Logger.getLogger("ECSBLog").info(EcsbEvolutionObserver.getHeader());
