@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ecsb:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8d554b97-fee7-43da-8b2f-8e671004fd4e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/local_decsb.jar" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/decsb_jar.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/local_decsb_jar.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decsb.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ecsb.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/local_decsb.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/ecsb_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/ecsb_jar.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/decsb.properties" afterPath="$PROJECT_DIR$/conf/decsb.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ro/utcluj/ecsb/EcsbTests.java" afterPath="$PROJECT_DIR$/src/ro/utcluj/ecsb/EcsbTests.java" />
     </list>
     <ignored path="decsb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,27 +97,43 @@
       <file leaf-file-name="EcsbTests.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/EcsbTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="60" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DecsbTests.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/DecsbTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="116" selection-start="1468" selection-end="1468" vertical-scroll-proportion="0.78271604">
+            <state line="17" column="89" selection-start="745" selection-end="745" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="decsb.properties" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="EcsbUtils.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/EcsbUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="23" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DecsbTests.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/DecsbTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="54" column="33" selection-start="2383" selection-end="2383" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="decsb.properties" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/conf/decsb.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="0" selection-start="1235" selection-end="1235" vertical-scroll-proportion="0.0">
+            <state line="36" column="0" selection-start="1332" selection-end="1332" vertical-scroll-proportion="0.8389262">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MANIFEST.MF" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="0" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -147,9 +176,9 @@
         <option value="$PROJECT_DIR$/result.txt" />
         <option value="$PROJECT_DIR$/caravan-j48.txt" />
         <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/EcsbClassifiers.java" />
-        <option value="$PROJECT_DIR$/conf/decsb.properties" />
-        <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/EcsbTests.java" />
         <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/DecsbTests.java" />
+        <option value="$PROJECT_DIR$/src/ro/utcluj/ecsb/EcsbTests.java" />
+        <option value="$PROJECT_DIR$/conf/decsb.properties" />
       </list>
     </option>
   </component>
@@ -359,7 +388,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="conf" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decsb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decsb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="META-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -393,7 +440,7 @@
       <recent name="$PROJECT_DIR$/src/ro/utcluj/ecsb/utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DecsbTests">
+  <component name="RunManager" selected="Application.EcsbTests">
     <configuration default="false" name="ECSB" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="ro.utcluj.ecsb.ECSB" />
       <option name="VM_PARAMETERS" value="" />
@@ -521,24 +568,6 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -564,6 +593,24 @@
       <envs />
       <properties />
       <listeners />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -656,7 +703,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1440" height="852" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -664,13 +711,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.49784172" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.328125" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39928058" sideWeight="0.60795456" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25502872" sideWeight="0.61221594" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3877841" sideWeight="0.4971223" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25431034" sideWeight="0.671875" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3877841" sideWeight="0.4971223" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -737,21 +784,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/in/german.arff">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sick-euthyroid-smo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/EcsbUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="33" selection-start="955" selection-end="955" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/population/EcsbCandidateFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="13" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0" />
@@ -767,21 +799,6 @@
         <state line="58" column="20" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/result.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3472" column="58" selection-start="192005" selection-end="192005" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sick-eutyroid-j48.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="2989" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/caravan-j48.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="85" selection-start="2317" selection-end="2317" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/EcsbFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="123" column="0" selection-start="4967" selection-end="4967" vertical-scroll-proportion="0.0" />
@@ -789,44 +806,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/EcsbClassifiers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="51" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0">
+        <state line="6" column="51" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/ECSB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="1144" selection-end="1568" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/DecsbTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="33" selection-start="2383" selection-end="2383" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/decsb.properties">
+    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/utils/EcsbUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="1235" selection-end="1235" vertical-scroll-proportion="0.0">
+        <state line="38" column="23" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nd_weka.classifiers.lazy.IBk.txt">
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="1" column="0" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/EcsbTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="60" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/ECSB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="1144" selection-end="1568" vertical-scroll-proportion="0.0">
+        <state line="17" column="89" selection-start="745" selection-end="745" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ro/utcluj/ecsb/DecsbTests.java">
+    <entry file="file://$PROJECT_DIR$/conf/decsb.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="116" selection-start="1468" selection-end="1468" vertical-scroll-proportion="0.78271604">
+        <state line="36" column="0" selection-start="1332" selection-end="1332" vertical-scroll-proportion="0.8389262">
           <folding />
         </state>
       </provider>
@@ -837,7 +855,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>local_decsb:jar</last-edited>
+          <last-edited>ecsb:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
