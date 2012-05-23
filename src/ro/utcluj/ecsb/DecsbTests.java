@@ -18,11 +18,10 @@ public class DecsbTests {
                 ECSB.CONF_PATH = args[0];
             }
             for (EcsbClassifiers classifier : EcsbClassifiers.values()) {
+                EcsbUtils.initLogger(distributed, "d_" + classifier.getClassName() + ".txt");
                 Logger.getLogger(DecsbTests.class).info(classifier.getClassName() + " - starting time:" + new Timestamp(System.currentTimeMillis()));
                 Properties configuration = EcsbUtils.loadConfiguration(distributed, ECSB.CONF_PATH + "decsb.properties");
                 overwriteConfiguration(configuration, classifier);
-
-                EcsbUtils.initLogger(distributed, "nd_" + classifier.getClassName() + ".txt");
                 final ECSB ecsb = new EcsbFactory(configuration).setUpECSB(distributed);
                 ecsb.runEvolutionaryCostSensitiveBalancing();
                 Logger.getLogger(DecsbTests.class).info(classifier.getClassName() + " - end time:" + new Timestamp(System.currentTimeMillis()));
