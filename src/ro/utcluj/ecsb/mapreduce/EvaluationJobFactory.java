@@ -1,4 +1,4 @@
-package ro.utcluj.ecsb.hadoop;
+package ro.utcluj.ecsb.mapreduce;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.filecache.DistributedCache;
@@ -62,6 +62,7 @@ public class EvaluationJobFactory {
 
         job.getConfiguration().set("mapred.tasktracker.map.tasks", props.getProperty("map.per.node"));
 
+        job.getConfiguration().set("mapred.child.java.opts", props.getProperty("mapper.memory"));
 
         job.setInputFormatClass(WholeFileInputFormat.class);
 

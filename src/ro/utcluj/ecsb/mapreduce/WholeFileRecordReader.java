@@ -1,4 +1,4 @@
-package ro.utcluj.ecsb.hadoop;
+package ro.utcluj.ecsb.mapreduce;
 
 import java.io.IOException;
 

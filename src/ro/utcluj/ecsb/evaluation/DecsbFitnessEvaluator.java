@@ -2,7 +2,7 @@ package ro.utcluj.ecsb.evaluation;
 
 
 import org.apache.log4j.Logger;
-import ro.utcluj.ecsb.hadoop.EvaluationJobFactory;
+import ro.utcluj.ecsb.mapreduce.EvaluationJobFactory;
 import ro.utcluj.ecsb.population.EcsbIndividual;
 
 import java.util.List;

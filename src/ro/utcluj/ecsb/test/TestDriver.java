@@ -3,7 +3,7 @@ package ro.utcluj.ecsb.test;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import ro.utcluj.ecsb.hadoop.EvaluationJobFactory;
+import ro.utcluj.ecsb.mapreduce.EvaluationJobFactory;
 import ro.utcluj.ecsb.population.EcsbCandidateFactory;
 import ro.utcluj.ecsb.utils.EcsbUtils;
 

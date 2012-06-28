@@ -1,4 +1,4 @@
-package ro.utcluj.ecsb.hadoop;
+package ro.utcluj.ecsb.mapreduce;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.InputSplit;
 import org.apache.hadoop.mapreduce.JobContext;

@@ -9,6 +9,7 @@ import ro.utcluj.ecsb.utils.EcsbFactory;
 import ro.utcluj.ecsb.utils.EcsbUtils;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.Properties;
 
 public class ECSB {
@@ -32,18 +33,26 @@ public class ECSB {
         try {
             final Properties configuration;
             boolean distributed = false;
-            if (args.length>1 && args[0].equals("dist")){
+            if (args.length > 1 && args[0].equals("-d")){
                 distributed = true;
                 CONF_PATH = args[1];
+                }
+            else if (args.length > 0 && args[0].equals("-d")){
+                distributed = true;
+            }
+            else if (args.length > 0){
+                CONF_PATH = args[0];
             }
             configuration = EcsbUtils.loadConfiguration(distributed, CONF_PATH + "decsb.properties");
             EcsbUtils.initLogger(distributed, configuration.get("result_file").toString());
-            /*if (distributed){
-                EvaluationJobFactory.initCache(configuration);
 
-            }*/
+
      final ECSB ecsb = new EcsbFactory(configuration).setUpECSB(distributed);
+            Logger.getLogger(ECSB.class).info(EcsbUtils.propertiesToString(configuration));
+            Logger.getLogger(ECSB.class).info("starting time: " + new Timestamp(System.currentTimeMillis()));
             ecsb.runEvolutionaryCostSensitiveBalancing();
+            Logger.getLogger(ECSB.class).info("end time: " + new Timestamp(System.currentTimeMillis()));
+
         } catch (IOException e) {
             Logger.getLogger("ECSBLog").error("Unable to load configuration file.");
         }

@@ -11,6 +11,7 @@ import weka.classifiers.meta.CostSensitiveClassifier;
 import weka.classifiers.meta.MetaCost;
 import weka.core.Instances;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Random;
 
@@ -44,6 +45,9 @@ public class EcsbFitnessEvaluator extends EcsbEvaluator implements FitnessEvalua
 
     public Evaluation evaluateIndividual(EcsbIndividual individual) {
 
+        Logger.getLogger(EcsbFitnessEvaluator.class).info("Receiving: " + individual);
+        Logger.getLogger(EcsbFitnessEvaluator.class).info("Starting evaluation of individual at " + new Timestamp(System.currentTimeMillis()) + "");
+
         Evaluation evaluation;
 
         CostMatrix costMatrix = new CostMatrix(trainSet.numClasses());
@@ -68,9 +72,10 @@ public class EcsbFitnessEvaluator extends EcsbEvaluator implements FitnessEvalua
             } else {
                 evaluation.crossValidateModel(baseClassifier, trainSet, numFolds, new Random(1));
             }
+            Logger.getLogger(EcsbFitnessEvaluator.class).info("Evaluation ended at" + new Timestamp(System.currentTimeMillis()) + ".");
             return evaluation;
         } catch (Exception e) {
-            Logger.getLogger("ECSBLog").error("Unable to compute fitness.");
+            Logger.getLogger(EcsbFitnessEvaluator.class).error("Unable to compute fitness.");
             return null;
         }
     }

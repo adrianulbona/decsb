@@ -8,7 +8,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="project" />
-    <orderEntry type="library" name="hadoop-0.20.2" level="project" />
+    <orderEntry type="library" name="hadoop-core-0.20.2-cdh3u4" level="project" />
   </component>
 </module>
 

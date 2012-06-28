@@ -114,7 +114,7 @@ public class EcsbFactory {
 
         instances.setClassIndex(getClassIndex(instances));
 
-        instances.randomize(new Random(1));
+        instances.randomize(new MersenneTwisterRNG());
         instances.stratify(numFolds);
 
         return new Instances[]{instances.trainCV(numFolds, 1), instances.testCV(numFolds, 1)};
@@ -132,7 +132,7 @@ public class EcsbFactory {
 
         final int numFolds = Integer.valueOf(this.configuration.getProperty("num_folds"));
 
-        trainSet.randomize(new Random(1));
+        trainSet.randomize(new MersenneTwisterRNG());
         trainSet.stratify(numFolds);
 
         final String baseClassifierName = this.configuration.getProperty("base_classifier");

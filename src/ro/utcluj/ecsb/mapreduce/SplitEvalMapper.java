@@ -1,4 +1,4 @@
-package ro.utcluj.ecsb.hadoop;
+package ro.utcluj.ecsb.mapreduce;
 
 import org.apache.hadoop.io.BytesWritable;
 import org.apache.hadoop.io.DoubleWritable;

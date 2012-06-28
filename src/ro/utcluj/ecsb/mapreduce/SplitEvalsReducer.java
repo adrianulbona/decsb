@@ -1,11 +1,9 @@
-package ro.utcluj.ecsb.hadoop;
+package ro.utcluj.ecsb.mapreduce;
 
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.mapreduce.Reducer;
-import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 import org.apache.log4j.Logger;
-import weka.associations.tertius.IndividualInstance;
 
 import java.io.IOException;
 
